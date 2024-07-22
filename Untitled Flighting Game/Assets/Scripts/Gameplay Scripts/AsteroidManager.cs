@@ -39,6 +39,11 @@ public class AsteroidManager : MonoBehaviour
 
     private void Start()
     {
+        InitializeAsteroids();
+    }
+
+    private void InitializeAsteroids()
+    {
         asteroids = new GameObject[initialAsteroids];
         for (int i = 0; i < initialAsteroids; i++)
         {
@@ -106,5 +111,20 @@ public class AsteroidManager : MonoBehaviour
     private Vector2 GetRandomSpawnPosition()
     {
         return new Vector2(Random.Range(minSpawnX, maxSpawnX), spawnY);
+    }
+
+    public void ResetAsteroids()
+    {
+        // Destroy existing asteroids
+        foreach (var asteroid in asteroids)
+        {
+            if (asteroid != null)
+            {
+                Destroy(asteroid);
+            }
+        }
+
+        // Re-initialize the asteroids
+        InitializeAsteroids();
     }
 }

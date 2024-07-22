@@ -3,10 +3,13 @@ using UnityEngine;
 public class PlayerLife : MonoBehaviour
 {
     public int lives = 3; 
-    public GameObject[] lifeIndicators; 
+    public GameObject[] lifeIndicators;
+
+    private int initialLives;
 
     private void Start()
     {
+        initialLives = lives;  // Store the initial number of lives
         UpdateLifeIndicators();
     }
 
@@ -22,7 +25,6 @@ public class PlayerLife : MonoBehaviour
                 GameManager.Instance.EndGame();
             }
         }
-        
     }
 
     private void UpdateLifeIndicators()
@@ -31,5 +33,11 @@ public class PlayerLife : MonoBehaviour
         {
             lifeIndicators[i].GetComponent<SpriteRenderer>().enabled = i < lives;
         }
+    }
+
+    public void ResetLives()
+    {
+        lives = initialLives;  // Reset lives to initial value
+        UpdateLifeIndicators();
     }
 }

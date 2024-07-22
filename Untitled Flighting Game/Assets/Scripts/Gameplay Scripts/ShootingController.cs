@@ -15,6 +15,7 @@ public class ShootingController : MonoBehaviour
     public AudioClip shootingAudioClip;
 
     private float nextFireTime = 0f;
+    [HideInInspector] public float originalFireRate; // Store original fire rate value
 
     private void Awake()
     {
@@ -23,6 +24,8 @@ public class ShootingController : MonoBehaviour
         {
             shootingAudioSource = GetComponent<AudioSource>();
         }
+
+        originalFireRate = fireRate; // Initialize original fire rate value
     }
 
     private void Update()

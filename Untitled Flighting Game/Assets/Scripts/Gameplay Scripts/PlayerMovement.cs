@@ -12,10 +12,12 @@ public class PlayerMovement : MonoBehaviour
     public KeyCode rotateRightKey;
 
     private Rigidbody2D rb;
+    [HideInInspector] public float originalThrust; // Store original thrust value
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        originalThrust = thrust; // Initialize original thrust value
     }
 
     private void FixedUpdate()

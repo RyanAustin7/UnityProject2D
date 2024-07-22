@@ -12,6 +12,7 @@ public class Powerup : MonoBehaviour
     public float flickerStartTime = 1f;  // Time before the end of the powerup when flickering starts
 
     private SpriteRenderer spriteRenderer;
+    private Coroutine activeCoroutine;
 
     private void Start()
     {
@@ -20,9 +21,15 @@ public class Powerup : MonoBehaviour
 
     public void TogglePowerUp(bool start = true)
     {
+        if (activeCoroutine != null)
+        {
+            StopCoroutine(activeCoroutine);
+            activeCoroutine = null;
+        }
+
         if (start)
         {
-            StartCoroutine(ChangeSpriteAndStats(true));
+            activeCoroutine = StartCoroutine(ChangeSpriteAndStats(true));
         }
         else
         {
@@ -47,40 +54,28 @@ public class Powerup : MonoBehaviour
                 // Change player's sprite to indicate powerup effect
                 spriteRenderer.sprite = powerupSprite;
 
-                // Wait for the duration of the powerup effect
-                float elapsed = 0f;
-                while (elapsed < effectDuration)
+                // Wait for the duration of the powerup
+                yield return new WaitForSeconds(effectDuration - flickerStartTime);
+
+                // Flicker the player's sprite
+                float flickerEndTime = Time.time + flickerStartTime;
+                while (Time.time < flickerEndTime)
                 {
-                    // Update elapsed time
-                    elapsed += Time.deltaTime;
-
-                    // Check if we are in the last `flickerStartTime` seconds of the powerup duration
-                    if (elapsed >= effectDuration - flickerStartTime)
-                    {
-                        // Flicker the sprite every `flickerInterval` seconds
-                        spriteRenderer.sprite = (spriteRenderer.sprite == powerupSprite) ? originalSprite : powerupSprite;
-                        yield return new WaitForSeconds(flickerInterval);
-                    }
-                    else
-                    {
-                        // Wait for the next frame
-                        yield return null;
-                    }
+                    spriteRenderer.enabled = !spriteRenderer.enabled;
+                    yield return new WaitForSeconds(flickerInterval);
                 }
+                spriteRenderer.enabled = true;
 
-                // Ensure the final sprite is the original sprite
+                // Revert the player's sprite and stats to original values
+                playerMovement.thrust -= increasedThrust;
+                shootingController.fireRate += increasedFireRate;
                 spriteRenderer.sprite = originalSprite;
-
-                // Revert the powerup effect
-                TogglePowerUp(false);
             }
             else
             {
-                // Revert player stats to normal
-                playerMovement.thrust -= increasedThrust;
-                shootingController.fireRate += increasedFireRate;  // Restore original fire rate
-
-                // Restore the original sprite
+                // Reset player stats and sprite
+                playerMovement.thrust = playerMovement.originalThrust;
+                shootingController.fireRate = shootingController.originalFireRate;
                 spriteRenderer.sprite = originalSprite;
             }
         }

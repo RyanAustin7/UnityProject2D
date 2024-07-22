@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +22,19 @@ public class GameManager : MonoBehaviour
     [Header("Player 2 Wins Buttons")]
     public Button player2PlayAgainButton;
     public Button player2MainMenuButton;
+
+    [Header("Player Transforms")]
+    public Transform player1;
+    public Transform player2;
+
+    [Header("Asteroid Manager")]
+    public AsteroidManager asteroidManager;
+
+    [Header("Powerup Spawner")]
+    public PowerupSpawner powerupSpawner; // Reference to the powerup spawner
+
+    private Vector3 player1StartPos;
+    private Vector3 player2StartPos;
 
     private void Awake()
     {
@@ -60,6 +72,10 @@ public class GameManager : MonoBehaviour
         // Initially hide the win panels
         player1WinsPanel.SetActive(false);
         player2WinsPanel.SetActive(false);
+
+        // Store initial player positions
+        player1StartPos = player1.position;
+        player2StartPos = player2.position;
     }
 
     private void Update()
@@ -82,10 +98,15 @@ public class GameManager : MonoBehaviour
         {
             ShowGameOver(player1WinsPanel);
         }
+
+        RemoveAllPowerups();
     }
 
     private void ShowGameOver(GameObject winnerPanel)
     {
+        // Pause the game
+        Time.timeScale = 0f;
+
         // Show the winner panel
         player1WinsPanel.SetActive(winnerPanel == player1WinsPanel);
         player2WinsPanel.SetActive(winnerPanel == player2WinsPanel);
@@ -93,9 +114,15 @@ public class GameManager : MonoBehaviour
 
     private void PlayAgain()
     {
-        // Resume game time and reload the scene
+        // Hide the win panels
+        player1WinsPanel.SetActive(false);
+        player2WinsPanel.SetActive(false);
+
+        // Resume game time
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        // Reset the game
+        ResetGame();
     }
 
     private void GoToMainMenu()
@@ -103,5 +130,69 @@ public class GameManager : MonoBehaviour
         // Resume game time and go to the main menu
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu"); // Replace "Menu" with the name of your main menu scene
+    }
+
+    private void ResetGame()
+    {
+        // Reset players' lives
+        playerLife1.ResetLives();
+        playerLife2.ResetLives();
+
+        // Reset players' positions and rotations
+        player1.position = player1StartPos;
+        player2.position = player2StartPos;
+
+        player1.rotation = Quaternion.Euler(0f, 0f, -90f);
+        player2.rotation = Quaternion.Euler(0f, 0f, 90f);
+
+        // Reset players' velocities (if they have Rigidbody2D components)
+        Rigidbody2D rb1 = player1.GetComponent<Rigidbody2D>();
+        if (rb1 != null)
+        {
+            rb1.velocity = Vector2.zero;
+            rb1.angularVelocity = 0f;
+        }
+
+        Rigidbody2D rb2 = player2.GetComponent<Rigidbody2D>();
+        if (rb2 != null)
+        {
+            rb2.velocity = Vector2.zero;
+            rb2.angularVelocity = 0f;
+        }
+
+        // Reset the asteroid manager
+        if (asteroidManager != null)
+        {
+            asteroidManager.ResetAsteroids();
+        }
+
+        // Reset the powerup spawner
+        if (powerupSpawner != null)
+        {
+            powerupSpawner.ResetPowerupSpawner();
+        }
+
+        // Deactivate any active powerups for the players
+        DeactivatePlayerPowerups(player1);
+        DeactivatePlayerPowerups(player2);
+    }
+
+    private void RemoveAllPowerups()
+    {
+        // removes powerups on field tagged as "Powerup"
+        GameObject[] powerups = GameObject.FindGameObjectsWithTag("Powerup");
+        foreach (GameObject powerup in powerups)
+        {
+            Destroy(powerup);
+        }
+    }
+
+    private void DeactivatePlayerPowerups(Transform player)
+    {
+        Powerup powerup = player.GetComponent<Powerup>();
+        if (powerup != null)
+        {
+            powerup.TogglePowerUp(false);
+        }
     }
 }
