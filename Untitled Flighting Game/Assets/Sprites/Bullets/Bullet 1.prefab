@@ -302,7 +302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  knockbackForce: 100000
+  damageAmount: 0.8
+  bulletKnockbackScale: 1.01
 --- !u!58 &4298765550148913143
 CircleCollider2D:
   m_ObjectHideFlags: 0

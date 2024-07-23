@@ -55,19 +55,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        if (player1PlayAgainButton == null || player1MainMenuButton == null ||
-            player2PlayAgainButton == null || player2MainMenuButton == null)
-        {
-            Debug.LogError("One or more buttons are not assigned in the GameManager.");
-            return;
-        }
-
-        if (player1WinsPanel == null || player2WinsPanel == null)
-        {
-            Debug.LogError("One or more win panels are not assigned in the GameManager.");
-            return;
-        }
-
         player1PlayAgainButton.onClick.AddListener(PlayAgain);
         player1MainMenuButton.onClick.AddListener(GoToMainMenu);
         player2PlayAgainButton.onClick.AddListener(PlayAgain);
@@ -138,28 +125,15 @@ public class GameManager : MonoBehaviour
 
         RemoveAllAsteroids(); // Ensure all asteroids are removed before resetting spawners
 
-        if (asteroidManager != null)
+        asteroidManager.ResetAsteroids();
+        powerupSpawner.ResetPowerupSpawner();
+
+        foreach (var spawner in asteroidSpawners)
         {
-            asteroidManager.ResetAsteroids();
+            spawner.ResetAsteroidSpawner();
         }
 
-        if (powerupSpawner != null)
-        {
-            powerupSpawner.ResetPowerupSpawner();
-        }
-
-        if (asteroidSpawners != null)
-        {
-            foreach (var spawner in asteroidSpawners)
-            {
-                spawner.ResetAsteroidSpawner();
-            }
-        }
-
-        if (MyTimerScript != null)
-        {
-            MyTimerScript.ResetTimer();
-        }
+        MyTimerScript.ResetTimer();
 
         DeactivatePlayerPowerups(player1);
         DeactivatePlayerPowerups(player2);

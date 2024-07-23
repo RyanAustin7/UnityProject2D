@@ -4,8 +4,7 @@ public class PlayerMovement : MonoBehaviour
 {
     public float thrust = 50f;
     public float rotationSpeed = 200f;
-    public float maxSpeed = 10f;
-
+    
     public KeyCode upKey;
     public KeyCode downKey;
     public KeyCode rotateLeftKey;
@@ -23,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         ControlRocket();
-        ClampVelocity();
+        // Removed ClampVelocity() to allow unlimited speed
     }
 
     private void ControlRocket()
@@ -52,11 +51,6 @@ public class PlayerMovement : MonoBehaviour
         transform.Rotate(0, 0, rotationAmount);
 
         rb.AddForce(transform.up * thrust * verticalInput);
-    }
-
-    private void ClampVelocity()
-    {
-        rb.velocity = Vector2.ClampMagnitude(rb.velocity, maxSpeed);
     }
 
     public void SetThrust(float newThrust)
