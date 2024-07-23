@@ -10,13 +10,17 @@ public class Asteroid : MonoBehaviour
     private float maxSpeedX;
     private float minSpeedY;
     private float maxSpeedY;
+    private float minScale;
+    private float maxScale;
 
-    public void InitializeMovement(float minX, float maxX, float minY, float maxY)
+    public void InitializeMovement(float minX, float maxX, float minY, float maxY, float minScale, float maxScale)
     {
         minSpeedX = minX;
         maxSpeedX = maxX;
         minSpeedY = minY;
         maxSpeedY = maxY;
+        this.minScale = minScale;
+        this.maxScale = maxScale;
 
         maxRotation = 25f;
         rotationZ = Random.Range(-maxRotation, maxRotation);
@@ -28,6 +32,10 @@ public class Asteroid : MonoBehaviour
         rb.velocity = new Vector2(speedX, speedY);
 
         rb.gravityScale = 0;
+
+        // Randomize the scale
+        float randomScale = Random.Range(minScale, maxScale);
+        transform.localScale = new Vector3(randomScale, randomScale, 1);
     }
 
     private void Update()
@@ -35,5 +43,11 @@ public class Asteroid : MonoBehaviour
         transform.Rotate(0, 0, rotationZ * Time.deltaTime);
     }
 
-    
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("AsteroidBreaker"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

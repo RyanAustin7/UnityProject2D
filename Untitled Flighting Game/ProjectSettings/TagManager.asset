@@ -11,6 +11,8 @@ TagManager:
   - Boundary
   - Wall
   - Powerup
+  - AsteroidBreaker
+  - Asteroid
   layers:
   - Default
   - TransparentFX

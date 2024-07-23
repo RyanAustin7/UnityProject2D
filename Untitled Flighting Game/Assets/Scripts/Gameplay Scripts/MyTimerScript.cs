@@ -3,34 +3,56 @@ using TMPro;
 
 public class MyTimerScript : MonoBehaviour
 {
-    public TextMeshProUGUI timerText;  // Reference to the TextMeshProUGUI component
+    public TextMeshProUGUI timerText; // Reference to the TextMeshProUGUI component
+    private float elapsedTime = 0f;   // Variable to track elapsed time
+    private bool isRunning = false;   // Flag to check if the timer is running
 
-    private float elapsedTime = 0f;
+    private void Start()
+    {
+        timerText.text = "0.0"; // Initialize the timer display
+        StartTimer();
+    }
 
     private void Update()
     {
-        // Update elapsed time
-        elapsedTime += Time.deltaTime;
-
-        // Update the timer text
-        UpdateTimerText();
+        if (isRunning)
+        {
+            elapsedTime += Time.deltaTime;
+            UpdateTimerDisplay();
+        }
     }
 
-    private void UpdateTimerText()
+    private void UpdateTimerDisplay()
     {
-        // Calculate minutes, seconds, and milliseconds
         int minutes = Mathf.FloorToInt(elapsedTime / 60f);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60f);
-        int milliseconds = Mathf.FloorToInt((elapsedTime % 1f) * 10f); // Single digit milliseconds (0-9)
+        float seconds = elapsedTime % 60f;
 
-        // Format the timer text
         if (minutes > 0)
         {
-            timerText.text = string.Format("{0}:{1:00}.{2}", minutes, seconds, milliseconds);
+            timerText.text = string.Format("{0}:{1:00.0}", minutes, seconds);
         }
         else
         {
-            timerText.text = string.Format("{0}.{1}", seconds, milliseconds);
+            timerText.text = string.Format("{0:0.0}", seconds);
         }
+    }
+
+    public void StartTimer()
+    {
+        elapsedTime = 0f;
+        isRunning = true;
+    }
+
+    public void StopTimer()
+    {
+        isRunning = false;
+    }
+
+    public void ResetTimer()
+    {
+        StopTimer();
+        elapsedTime = 0f;
+        timerText.text = "0.0";
+        StartTimer();
     }
 }
