@@ -61,16 +61,12 @@ public class AsteroidSpawner : MonoBehaviour
 
     private IEnumerator SpawnAsteroidsForWave(float waveDuration)
     {
-        float elapsedTime = 0f;
+        float waveEndTime = Time.time + waveDuration;
 
-        while (elapsedTime < waveDuration)
+        while (Time.time < waveEndTime)
         {
-            SpawnAsteroids(minScale, maxScale);
-
-            float spawnInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
-            yield return new WaitForSeconds(spawnInterval);
-
-            elapsedTime += spawnInterval;
+            SpawnAsteroid();
+            yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
         }
     }
 
@@ -85,47 +81,46 @@ public class AsteroidSpawner : MonoBehaviour
         maxScale = settings.maxScale;
     }
 
-    public void SpawnAsteroids(float minScale, float maxScale)
+    private void SpawnAsteroid()
     {
+        Vector3 spawnPosition = new Vector3(
+            Random.Range(minSpawnX, maxSpawnX),
+            Random.Range(minSpawnY, maxSpawnY),
+            0f
+        );
+
         for (int i = 0; i < asteroidCount; i++)
         {
-            GameObject asteroid = Instantiate(asteroidPrefab, GetRandomSpawnPosition(), Quaternion.identity);
-            Asteroid asteroidScript = asteroid.GetComponent<Asteroid>();
-            if (asteroidScript != null)
-            {
-                asteroidScript.InitializeMovement(minSpeedX, maxSpeedX, minSpeedY, maxSpeedY, minScale, maxScale);
-            }
-        }
-    }
+            GameObject asteroid = Instantiate(asteroidPrefab, spawnPosition, Quaternion.identity);
 
-    private Vector2 GetRandomSpawnPosition()
-    {
-        return new Vector2(Random.Range(minSpawnX, maxSpawnX), Random.Range(minSpawnY, maxSpawnY));
+            Rigidbody2D rb = asteroid.GetComponent<Rigidbody2D>();
+            if (rb != null)
+            {
+                rb.velocity = new Vector2(Random.Range(minSpeedX, maxSpeedX), Random.Range(minSpeedY, maxSpeedY));
+            }
+
+            float randomScale = Random.Range(minScale, maxScale);
+            asteroid.transform.localScale = new Vector3(randomScale, randomScale, randomScale);
+        }
     }
 
     public void ResetAsteroidSpawner()
     {
-        if (waveCoroutine != null)
-        {
-            StopCoroutine(waveCoroutine);
-        }
-
+        StopAllCoroutines();
         currentWaveIndex = 0;
-        currentWave = 0;
-
-        // Restart the delay coroutine
         waveCoroutine = StartCoroutine(HandleWavesWithDelay());
     }
 }
 
+
 [System.Serializable]
 public class WaveSettings
 {
-    public float minSpeedX;
-    public float maxSpeedX;
-    public float minSpeedY;
-    public float maxSpeedY;
-    public int asteroidCount;
-    public float minScale;
-    public float maxScale;
+    public float minSpeedX = -2f;      // Minimum horizontal speed
+    public float maxSpeedX = 2f;       // Maximum horizontal speed
+    public float minSpeedY = -2f;      // Minimum vertical speed
+    public float maxSpeedY = 2f;       // Maximum vertical speed
+    public int asteroidCount = 5;      // Number of asteroids to spawn
+    public float minScale = 0.15f;     // Minimum scale for asteroids
+    public float maxScale = 0.5f;      // Maximum scale for asteroids
 }

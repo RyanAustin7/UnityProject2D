@@ -41,7 +41,6 @@ public class Powerup : MonoBehaviour
     {
         PlayerMovement playerMovement = GetComponent<PlayerMovement>();
         ShootingController shootingController = GetComponent<ShootingController>();
-        SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (playerMovement != null && shootingController != null && spriteRenderer != null)
         {
@@ -57,19 +56,18 @@ public class Powerup : MonoBehaviour
                 // Wait for the duration of the powerup
                 yield return new WaitForSeconds(effectDuration - flickerStartTime);
 
-                // Flicker the player's sprite
+                // Flicker between the powerup and original sprites
                 float flickerEndTime = Time.time + flickerStartTime;
                 while (Time.time < flickerEndTime)
                 {
-                    spriteRenderer.enabled = !spriteRenderer.enabled;
+                    spriteRenderer.sprite = spriteRenderer.sprite == powerupSprite ? originalSprite : powerupSprite;
                     yield return new WaitForSeconds(flickerInterval);
                 }
-                spriteRenderer.enabled = true;
+                spriteRenderer.sprite = originalSprite;
 
-                // Revert the player's sprite and stats to original values
+                // Revert the player's stats to original values
                 playerMovement.thrust -= increasedThrust;
                 shootingController.fireRate += increasedFireRate;
-                spriteRenderer.sprite = originalSprite;
             }
             else
             {

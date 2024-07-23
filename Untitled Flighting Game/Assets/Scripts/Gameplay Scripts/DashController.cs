@@ -14,6 +14,9 @@ public class DashController : MonoBehaviour
     public AudioSource dashAudioSource; // AudioSource for dashing sound
     public AudioClip dashAudioClip; // AudioClip for dashing sound
 
+    [Header("Trail Renderer")]
+    public GameObject trailRendererObject; // The child GameObject with the Trail Renderer
+
     private float dashTime = 0;
     private float lastDashTime = 0; // Time when the last dash occurred
     private Vector2 dashDirection;
@@ -42,6 +45,14 @@ public class DashController : MonoBehaviour
                 transform.position += (Vector3)dashDirection * dashSpeed * Time.deltaTime;
             }
         }
+        else if (Time.time >= lastDashTime + dashCooldown)
+        {
+            // Reactivate the trail renderer when the cooldown is over
+            if (trailRendererObject != null && !trailRendererObject.activeSelf)
+            {
+                trailRendererObject.SetActive(true);
+            }
+        }
     }
 
     private void StartDashing()
@@ -50,6 +61,12 @@ public class DashController : MonoBehaviour
         dashTime = 0;
         dashDirection = new Vector2(transform.up.x, transform.up.y).normalized;  // Set dash direction based on current facing direction
         lastDashTime = Time.time; // Record the time of the current dash
+
+        // Deactivate the trail renderer during the dash cooldown
+        if (trailRendererObject != null)
+        {
+            trailRendererObject.SetActive(false);
+        }
 
         // Play the dash sound
         if (dashAudioSource != null && dashAudioClip != null)

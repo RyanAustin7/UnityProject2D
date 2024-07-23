@@ -24,10 +24,10 @@ public class AsteroidManager : MonoBehaviour
             Destroy(asteroid);
         }
 
-        // Initialize the asteroid spawners
+        // Reset all asteroid spawners
         foreach (var spawner in FindObjectsOfType<AsteroidSpawner>())
         {
-            spawner.SpawnAsteroids(spawner.minScale, spawner.maxScale); // Pass min and max scale to spawner
+            spawner.ResetAsteroidSpawner();
         }
     }
 }
