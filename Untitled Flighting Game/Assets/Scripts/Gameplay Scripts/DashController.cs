@@ -18,6 +18,9 @@ public class DashController : MonoBehaviour
     [Header("Trail Renderer")]
     public GameObject trailRendererObject;
 
+    [Header("Cooldown Indicator")]
+    public GameObject cooldownIndicator;  // Object to activate during cooldown
+
     private float dashTime = 0;
     private float lastDashTime = 0;
     private Vector2 dashDirection;
@@ -44,11 +47,29 @@ public class DashController : MonoBehaviour
                 transform.position += (Vector3)dashDirection * dashSpeed * Time.deltaTime;
             }
         }
-        else if (Time.time >= lastDashTime + dashCooldown)
+        else
         {
-            if (trailRendererObject != null && !trailRendererObject.activeSelf)
+            // Manage the cooldown indicator object
+            if (Time.time < lastDashTime + dashCooldown)
             {
-                trailRendererObject.SetActive(true);
+                // Activate the cooldown indicator if it's not already active
+                if (cooldownIndicator != null && !cooldownIndicator.activeSelf)
+                {
+                    cooldownIndicator.SetActive(true);
+                }
+            }
+            else
+            {
+                // Deactivate the cooldown indicator if the cooldown has ended
+                if (cooldownIndicator != null && cooldownIndicator.activeSelf)
+                {
+                    cooldownIndicator.SetActive(false);
+                }
+
+                if (trailRendererObject != null && !trailRendererObject.activeSelf)
+                {
+                    trailRendererObject.SetActive(true);
+                }
             }
         }
     }

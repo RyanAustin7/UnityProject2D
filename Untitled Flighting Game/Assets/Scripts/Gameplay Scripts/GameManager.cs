@@ -87,7 +87,10 @@ public class GameManager : MonoBehaviour
         }
 
         RemoveAllPowerups();
-        RemoveAllAsteroids(); // Call the method to remove all asteroids
+        RemoveAllAsteroids(); 
+        
+        player1.position = player1StartPos;
+        player2.position = player2StartPos;
     }
 
     private void ShowGameOver(GameObject winnerPanel)
@@ -99,6 +102,7 @@ public class GameManager : MonoBehaviour
 
     private void PlayAgain()
     {
+        
         player1WinsPanel.SetActive(false);
         player2WinsPanel.SetActive(false);
         Time.timeScale = 1f;
@@ -137,6 +141,10 @@ public class GameManager : MonoBehaviour
 
         DeactivatePlayerPowerups(player1);
         DeactivatePlayerPowerups(player2);
+
+        // Ensure trail renderers are properly initialized
+        ResetTrailRenderer(player1);
+        ResetTrailRenderer(player2);
     }
 
     private void ResetPlayerRigidbody(Transform player)
@@ -146,6 +154,16 @@ public class GameManager : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
+        }
+    }
+
+    private void ResetTrailRenderer(Transform player)
+    {
+        TrailRenderer trailRenderer = player.GetComponent<TrailRenderer>();
+        if (trailRenderer != null)
+        {
+            trailRenderer.Clear();
+            trailRenderer.enabled = true;  // Ensure it's enabled
         }
     }
 

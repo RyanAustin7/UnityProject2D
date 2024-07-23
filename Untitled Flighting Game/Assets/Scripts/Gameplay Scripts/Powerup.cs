@@ -6,8 +6,7 @@ public class Powerup : MonoBehaviour
     public float effectDuration = 5f;  // Duration of the powerup effect
     public float increasedFireRate = 0.1f;  // Amount to increase the fire rate
     public float increasedThrust = 100f;  // Amount to increase the thrust
-    public Sprite powerupSprite;  // New sprite for the powerup
-    public Sprite originalSprite;  // Original sprite for the player
+    public GameObject powerupSpriteObject;  // Child object indicating the powerup
     public float flickerInterval = 0.1f;  // Time between flicker changes
     public float flickerStartTime = 1f;  // Time before the end of the powerup when flickering starts
 
@@ -16,7 +15,11 @@ public class Powerup : MonoBehaviour
 
     private void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        // Ensure the powerupSpriteObject is inactive at the start
+        if (powerupSpriteObject != null)
+        {
+            powerupSpriteObject.SetActive(false);
+        }
     }
 
     public void TogglePowerUp(bool start = true)
@@ -42,7 +45,7 @@ public class Powerup : MonoBehaviour
         PlayerMovement playerMovement = GetComponent<PlayerMovement>();
         ShootingController shootingController = GetComponent<ShootingController>();
 
-        if (playerMovement != null && shootingController != null && spriteRenderer != null)
+        if (playerMovement != null && shootingController != null)
         {
             if (powerUp)
             {
@@ -50,31 +53,45 @@ public class Powerup : MonoBehaviour
                 playerMovement.thrust += increasedThrust;
                 shootingController.fireRate -= increasedFireRate;  // Decrease fire rate to increase it
 
-                // Change player's sprite to indicate powerup effect
-                spriteRenderer.sprite = powerupSprite;
+                // Activate powerup indicator
+                if (powerupSpriteObject != null)
+                {
+                    powerupSpriteObject.SetActive(true);
+                }
 
-                // Wait for the duration of the powerup
+                // Wait for the duration of the powerup minus flicker start time
                 yield return new WaitForSeconds(effectDuration - flickerStartTime);
 
-                // Flicker between the powerup and original sprites
+                // Flicker the powerup sprite
                 float flickerEndTime = Time.time + flickerStartTime;
                 while (Time.time < flickerEndTime)
                 {
-                    spriteRenderer.sprite = spriteRenderer.sprite == powerupSprite ? originalSprite : powerupSprite;
+                    if (powerupSpriteObject != null)
+                    {
+                        powerupSpriteObject.SetActive(!powerupSpriteObject.activeSelf);
+                    }
                     yield return new WaitForSeconds(flickerInterval);
                 }
-                spriteRenderer.sprite = originalSprite;
+                
+                // Ensure the sprite is turned off at the end
+                if (powerupSpriteObject != null)
+                {
+                    powerupSpriteObject.SetActive(false);
+                }
 
-                // Revert the player's stats to original values
+                // Revert player stats to original values
                 playerMovement.thrust -= increasedThrust;
                 shootingController.fireRate += increasedFireRate;
             }
             else
             {
-                // Reset player stats and sprite
+                // Reset player stats and deactivate powerup indicator
                 playerMovement.thrust = playerMovement.originalThrust;
                 shootingController.fireRate = shootingController.originalFireRate;
-                spriteRenderer.sprite = originalSprite;
+                if (powerupSpriteObject != null)
+                {
+                    powerupSpriteObject.SetActive(false);
+                }
             }
         }
     }

@@ -135,7 +135,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   damageAmount: 0.8
-  bulletKnockbackScale: 1.01
+  bulletKnockbackScale: 0.5
 --- !u!50 &-8874464802845791599
 Rigidbody2D:
   serializedVersion: 4
