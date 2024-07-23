@@ -1574,15 +1574,15 @@ MonoBehaviour:
     maxSpeedY: 7
     asteroidCount: 5
     minScale: 0.25
-    maxScale: 0.6
+    maxScale: 0.65
   waveDurations:
-  - 16
-  - 16
-  - 17
-  - 17
-  - 16
-  - 13
-  - 35
+  - 20
+  - 20
+  - 23
+  - 23
+  - 23
+  - 23
+  - 45
   - 100000
   minSpawnInterval: 4.5
   maxSpawnInterval: 8.4
@@ -3928,15 +3928,15 @@ MonoBehaviour:
     maxSpeedY: 2
     asteroidCount: 5
     minScale: 0.25
-    maxScale: 0.6
+    maxScale: 0.65
   waveDurations:
-  - 16
-  - 16
-  - 17
-  - 17
-  - 16
-  - 13
-  - 35
+  - 20
+  - 20
+  - 23
+  - 23
+  - 23
+  - 23
+  - 45
   - 100000
   minSpawnInterval: 4.5
   maxSpawnInterval: 8.4
@@ -10213,15 +10213,15 @@ MonoBehaviour:
     maxSpeedY: 2
     asteroidCount: 5
     minScale: 0.25
-    maxScale: 0.6
+    maxScale: 0.65
   waveDurations:
-  - 16
-  - 16
-  - 17
-  - 17
-  - 16
-  - 13
-  - 35
+  - 20
+  - 20
+  - 23
+  - 23
+  - 23
+  - 23
+  - 45
   - 100000
   minSpawnInterval: 4.5
   maxSpawnInterval: 8.4
@@ -10391,15 +10391,15 @@ MonoBehaviour:
     maxSpeedY: -5
     asteroidCount: 5
     minScale: 0.25
-    maxScale: 0.6
+    maxScale: 0.65
   waveDurations:
-  - 16
-  - 16
-  - 17
-  - 17
-  - 16
-  - 13
-  - 35
+  - 20
+  - 20
+  - 23
+  - 23
+  - 23
+  - 23
+  - 45
   - 100000
   minSpawnInterval: 4.5
   maxSpawnInterval: 8.4
@@ -11725,8 +11725,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupPrefab: {fileID: 6976134583819911310, guid: ef03af3d1e1c9423e80ee49e598e8431, type: 3}
-  minInitialDelay: 2
-  maxInitialDelay: 2
+  minInitialDelay: 8
+  maxInitialDelay: 16
   minSpawnInterval: 8
   maxSpawnInterval: 12
   spawnRadius: 4.5

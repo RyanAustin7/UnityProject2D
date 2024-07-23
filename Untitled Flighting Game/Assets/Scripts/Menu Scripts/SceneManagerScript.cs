@@ -1,15 +1,22 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class SceneManagerScript : MonoBehaviour
 {
     [SerializeField] private GameObject objectForLeftShiftKey; 
     [SerializeField] private GameObject objectForRightShiftKey; 
-    [SerializeField] private float holdDuration = 2f;
+    [SerializeField] private float holdDuration = 1f;
 
     private SpriteRenderer leftShiftSpriteRenderer;
     private SpriteRenderer rightShiftSpriteRenderer;
     private float holdTime = 0f;
+
+    void Awake()
+    {
+        Time.timeScale = 1f; // Ensure time scale is set to normal
+        Debug.Log("Time.timeScale set to 1 in Awake of SceneManagerScript");
+    }
 
     void Start()
     {
@@ -33,7 +40,7 @@ public class SceneManagerScript : MonoBehaviour
         if (rightShiftSpriteRenderer != null)
             rightShiftSpriteRenderer.enabled = isRightShiftHeld;
 
-        // Check if both keys are held
+        // Check if both keys are held for the scene loading condition
         if (isLeftShiftHeld && isRightShiftHeld)
         {
             holdTime += Time.deltaTime;
