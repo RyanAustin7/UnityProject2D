@@ -12,17 +12,18 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     [HideInInspector] public float originalThrust; // Store original thrust value
+    [HideInInspector] public float originalRotationSpeed; // Store original rotation speed
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         originalThrust = thrust; // Initialize original thrust value
+        originalRotationSpeed = rotationSpeed; // Initialize original rotation speed value
     }
 
     private void FixedUpdate()
     {
         ControlRocket();
-        // Removed ClampVelocity() to allow unlimited speed
     }
 
     private void ControlRocket()
@@ -47,14 +48,32 @@ public class PlayerMovement : MonoBehaviour
             verticalInput = -1;
         }
 
+        // Rotation
         float rotationAmount = -horizontalInput * rotationSpeed * Time.deltaTime;
         transform.Rotate(0, 0, rotationAmount);
 
-        rb.AddForce(transform.up * thrust * verticalInput);
+        // Apply thrust in the direction the player is facing
+        Vector2 thrustDirection = transform.up;
+        rb.AddForce(thrustDirection * thrust * verticalInput);
     }
 
     public void SetThrust(float newThrust)
     {
         thrust = newThrust;
+    }
+
+    public void ResetThrust()
+    {
+        thrust = originalThrust;
+    }
+
+    public void SetRotationSpeed(float newRotationSpeed)
+    {
+        rotationSpeed = newRotationSpeed;
+    }
+
+    public void ResetRotationSpeed()
+    {
+        rotationSpeed = originalRotationSpeed;
     }
 }

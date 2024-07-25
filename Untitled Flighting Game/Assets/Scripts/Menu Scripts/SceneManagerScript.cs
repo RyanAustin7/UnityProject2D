@@ -7,6 +7,7 @@ public class SceneManagerScript : MonoBehaviour
     [SerializeField] private GameObject objectForLeftShiftKey; 
     [SerializeField] private GameObject objectForRightShiftKey; 
     [SerializeField] private float holdDuration = 1f;
+    [SerializeField] private MenuController menuController; // Reference to MenuController
 
     private SpriteRenderer leftShiftSpriteRenderer;
     private SpriteRenderer rightShiftSpriteRenderer;
@@ -32,26 +33,30 @@ public class SceneManagerScript : MonoBehaviour
         bool isLeftShiftHeld = Input.GetKey(KeyCode.LeftShift);
         bool isRightShiftHeld = Input.GetKey(KeyCode.RightShift);
 
-        // Update the SpriteRenderer for the left Shift key
-        if (leftShiftSpriteRenderer != null)
-            leftShiftSpriteRenderer.enabled = isLeftShiftHeld;
-
-        // Update the SpriteRenderer for the right Shift key
-        if (rightShiftSpriteRenderer != null)
-            rightShiftSpriteRenderer.enabled = isRightShiftHeld;
-
-        // Check if both keys are held for the scene loading condition
-        if (isLeftShiftHeld && isRightShiftHeld)
+        // Only update shift key sprites if neither panel is visible
+        if (!menuController.IsControlsPanelVisible && !menuController.IsQuitPanelVisible)
         {
-            holdTime += Time.deltaTime;
-            if (holdTime >= holdDuration)
+            // Update the SpriteRenderer for the left Shift key
+            if (leftShiftSpriteRenderer != null)
+                leftShiftSpriteRenderer.enabled = isLeftShiftHeld;
+
+            // Update the SpriteRenderer for the right Shift key
+            if (rightShiftSpriteRenderer != null)
+                rightShiftSpriteRenderer.enabled = isRightShiftHeld;
+
+            // Check if both keys are held for the scene loading condition
+            if (isLeftShiftHeld && isRightShiftHeld)
             {
-                SceneManager.LoadScene("TestScene");
+                holdTime += Time.deltaTime;
+                if (holdTime >= holdDuration)
+                {
+                    SceneManager.LoadScene("TestScene");
+                }
             }
-        }
-        else
-        {
-            holdTime = 0f;
+            else
+            {
+                holdTime = 0f;
+            }
         }
     }
 }

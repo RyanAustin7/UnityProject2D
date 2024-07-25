@@ -30,10 +30,15 @@ public class ShootingController : MonoBehaviour
 
     private void Update()
     {
-        if (PauseMenu.IsGamePaused())
+        if (PauseMenu.isGamePaused)
             return; // Skip update if the game is paused
 
         HandleShooting();
+
+        if (Time.timeScale == 0f)
+        {
+            return; // Skip shooting logic when the game is paused
+        }
     }
 
     private void HandleShooting()
@@ -66,5 +71,11 @@ public class ShootingController : MonoBehaviour
     public void SetFireRate(float newFireRate)
     {
         fireRate = newFireRate;
+    }
+
+    public void ResetShooting()
+    {
+        fireRate = originalFireRate;
+        nextFireTime = 0f;
     }
 }

@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance; // Singleton instance
+    public static GameManager Instance;
 
     [Header("Player Lives")]
     public PlayerLife playerLife1;
@@ -30,16 +31,29 @@ public class GameManager : MonoBehaviour
     public AsteroidManager asteroidManager;
 
     [Header("Asteroid Spawner")]
-    public AsteroidSpawner[] asteroidSpawners; // Reference to the asteroid spawners
+    public AsteroidSpawner[] asteroidSpawners;
 
     [Header("Powerup Spawner")]
-    public PowerupSpawner powerupSpawner; // Reference to the powerup spawner
+    public PowerupSpawner powerupSpawner;
 
     [Header("Game Timer")]
-    public MyTimerScript MyTimerScript; // Reference to the game timer
+    public MyTimerScript MyTimerScript;
+
+    [Header("Round Counter")]
+    public RoundCounter roundCounter;
+
+    [Header("Dash Controllers")]
+    public DashController player1DashController;
+    public DashController player2DashController;
+
+    [Header("Shooting Controllers")]
+    public ShootingController player1ShootingController;
+    public ShootingController player2ShootingController;
 
     private Vector3 player1StartPos;
     private Vector3 player2StartPos;
+    private bool hasPlayer1LostAllLives = false;
+    private bool hasPlayer2LostAllLives = false;
 
     private void Awake()
     {
@@ -65,12 +79,41 @@ public class GameManager : MonoBehaviour
 
         player1StartPos = player1.position;
         player2StartPos = player2.position;
+
+        // Ensure the game starts unpaused
+        Time.timeScale = 1f;
+
+        InitializePlayers();
+    }
+
+    private void InitializePlayers()
+    {
+        player1DashController = player1.GetComponent<DashController>();
+        player2DashController = player2.GetComponent<DashController>();
+        player1ShootingController = player1.GetComponent<ShootingController>();
+        player2ShootingController = player2.GetComponent<ShootingController>();
+
+        if (player1DashController == null || player2DashController == null)
+        {
+            Debug.LogError("DashController not found on one of the players.");
+        }
+
+        if (player1ShootingController == null || player2ShootingController == null)
+        {
+            Debug.LogError("ShootingController not found on one of the players.");
+        }
     }
 
     private void Update()
     {
-        if (playerLife1.lives <= 0 || playerLife2.lives <= 0)
+        if (playerLife1.lives <= 0 && !hasPlayer1LostAllLives)
         {
+            hasPlayer1LostAllLives = true;
+            EndGame();
+        }
+        else if (playerLife2.lives <= 0 && !hasPlayer2LostAllLives)
+        {
+            hasPlayer2LostAllLives = true;
             EndGame();
         }
     }
@@ -80,15 +123,23 @@ public class GameManager : MonoBehaviour
         if (playerLife1.lives <= 0)
         {
             ShowGameOver(player2WinsPanel);
+            if (!hasPlayer2LostAllLives)
+            {
+                roundCounter?.IncrementPlayer2Round();
+                hasPlayer2LostAllLives = true;
+            }
         }
         else if (playerLife2.lives <= 0)
         {
             ShowGameOver(player1WinsPanel);
+            if (!hasPlayer1LostAllLives)
+            {
+                roundCounter?.IncrementPlayer1Round();
+                hasPlayer1LostAllLives = true;
+            }
         }
 
-        RemoveAllPowerups();
-        RemoveAllAsteroids(); 
-        
+        RemoveAllAsteroids();
         player1.position = player1StartPos;
         player2.position = player2StartPos;
     }
@@ -100,19 +151,27 @@ public class GameManager : MonoBehaviour
         player2WinsPanel.SetActive(winnerPanel == player2WinsPanel);
     }
 
-    private void PlayAgain()
+    public void PlayAgain()
     {
-        
+        // Ensure the game is resumed
+        Time.timeScale = 1f;
+
+        // Reset the game
+        ResetGame();
+
+        // Hide the win panels
         player1WinsPanel.SetActive(false);
         player2WinsPanel.SetActive(false);
-        Time.timeScale = 1f;
-        ResetGame();
+
+        // Reset the flags for next round
+        hasPlayer1LostAllLives = false;
+        hasPlayer2LostAllLives = false;
     }
 
-    private void GoToMainMenu()
+    public void GoToMainMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Menu"); // Ensure this matches your menu scene name
+        SceneManager.LoadScene("Menu");
     }
 
     private void ResetGame()
@@ -127,10 +186,10 @@ public class GameManager : MonoBehaviour
         ResetPlayerRigidbody(player1);
         ResetPlayerRigidbody(player2);
 
-        RemoveAllAsteroids(); // Ensure all asteroids are removed before resetting spawners
+        RemoveAllAsteroids();
 
         asteroidManager.ResetAsteroids();
-        powerupSpawner.ResetPowerupSpawner();
+        powerupSpawner.ResetSpawner();
 
         foreach (var spawner in asteroidSpawners)
         {
@@ -142,9 +201,21 @@ public class GameManager : MonoBehaviour
         DeactivatePlayerPowerups(player1);
         DeactivatePlayerPowerups(player2);
 
-        // Ensure trail renderers are properly initialized
-        ResetTrailRenderer(player1);
-        ResetTrailRenderer(player2);
+        SetPlayerScale(player1, new Vector3(1.3f, 1.3f, 1.3f));
+        SetPlayerScale(player2, new Vector3(1.3f, 1.3f, 1.3f));
+
+        SetPlayerVisibility(player1, true);
+        SetPlayerVisibility(player2, true);
+
+        player1DashController?.ResetDash();
+        player2DashController?.ResetDash();
+        player1ShootingController?.ResetShooting();
+        player2ShootingController?.ResetShooting();
+    }
+
+    private void SetPlayerScale(Transform player, Vector3 scale)
+    {
+        player.localScale = scale;
     }
 
     private void ResetPlayerRigidbody(Transform player)
@@ -154,25 +225,6 @@ public class GameManager : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
             rb.angularVelocity = 0f;
-        }
-    }
-
-    private void ResetTrailRenderer(Transform player)
-    {
-        TrailRenderer trailRenderer = player.GetComponent<TrailRenderer>();
-        if (trailRenderer != null)
-        {
-            trailRenderer.Clear();
-            trailRenderer.enabled = true;  // Ensure it's enabled
-        }
-    }
-
-    private void RemoveAllPowerups()
-    {
-        GameObject[] powerups = GameObject.FindGameObjectsWithTag("Powerup");
-        foreach (GameObject powerup in powerups)
-        {
-            Destroy(powerup);
         }
     }
 
@@ -187,10 +239,30 @@ public class GameManager : MonoBehaviour
 
     private void DeactivatePlayerPowerups(Transform player)
     {
-        Powerup powerup = player.GetComponent<Powerup>();
-        if (powerup != null)
+        SpeedPowerup speedPowerup = player.GetComponent<SpeedPowerup>();
+        FireRatePowerup fireRatePowerup = player.GetComponent<FireRatePowerup>();
+        SizePowerup sizePowerup = player.GetComponent<SizePowerup>();
+
+        if (speedPowerup != null)
         {
-            powerup.TogglePowerUp(false);
+            speedPowerup.TogglePowerUp(false);
+        }
+        if (fireRatePowerup != null)
+        {
+            fireRatePowerup.TogglePowerUp(false);
+        }
+        if (sizePowerup != null)
+        {
+            sizePowerup.TogglePowerUp(false);
+        }
+    }
+
+    private void SetPlayerVisibility(Transform player, bool visible)
+    {
+        SpriteRenderer renderer = player.GetComponent<SpriteRenderer>();
+        if (renderer != null)
+        {
+            renderer.enabled = visible;
         }
     }
 }

@@ -24,10 +24,11 @@ public class DashController : MonoBehaviour
     private float dashTime = 0;
     private float lastDashTime = 0;
     private Vector2 dashDirection;
+    [HideInInspector] public float originalDashCooldown;
 
     private void Update()
     {
-        if (PauseMenu.IsGamePaused())
+        if (PauseMenu.isGamePaused)
             return;
 
         if (Input.GetKeyDown(dashKey) && Time.time >= lastDashTime + dashCooldown)
@@ -71,6 +72,10 @@ public class DashController : MonoBehaviour
                     trailRendererObject.SetActive(true);
                 }
             }
+        }
+        if (Time.timeScale == 0f)
+        {
+            return; // Skip dash logic when the game is paused
         }
     }
 
@@ -131,5 +136,10 @@ public class DashController : MonoBehaviour
         {
             damageable.IncreaseDamage(dashDamageAmount);
         }
+    }
+
+    public void ResetDash()
+    {
+        dashCooldown = 1f;
     }
 }
