@@ -16,7 +16,8 @@ public class SceneManagerScript : MonoBehaviour
     void Awake()
     {
         Time.timeScale = 1f; // Ensure time scale is set to normal
-        Debug.Log("Time.timeScale set to 1 in Awake of SceneManagerScript");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     void Start()

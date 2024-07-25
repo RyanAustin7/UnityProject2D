@@ -170,6 +170,10 @@ public class GameManager : MonoBehaviour
 
     public void GoToMainMenu()
     {
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }

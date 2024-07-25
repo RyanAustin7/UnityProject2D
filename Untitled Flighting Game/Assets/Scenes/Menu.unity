@@ -3585,7 +3585,6 @@ GameObject:
   - component: {fileID: 1525735814}
   - component: {fileID: 1525735815}
   - component: {fileID: 1525735816}
-  - component: {fileID: 1525735817}
   m_Layer: 0
   m_Name: ~~~GameManager~~~
   m_TagString: Untagged
@@ -3643,7 +3642,7 @@ MonoBehaviour:
   quitButton: {fileID: 808234290}
   yesButton: {fileID: 732023178}
   noButton: {fileID: 995225598}
-  buttonNavigation: {fileID: 1525735817}
+  buttonNavigation: {fileID: 0}
 --- !u!114 &1525735816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3658,27 +3657,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   holdDuration: 1
   timerText: {fileID: 1496310486}
---- !u!114 &1525735817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1525735811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 378d700243a4a422d9af7a5f64c7ee26, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 2146649449}
-  - {fileID: 1784828674}
-  - {fileID: 808234290}
-  - {fileID: 465528824}
-  - {fileID: 995225598}
-  - {fileID: 732023178}
-  selectedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1580597751
 GameObject:
   m_ObjectHideFlags: 0

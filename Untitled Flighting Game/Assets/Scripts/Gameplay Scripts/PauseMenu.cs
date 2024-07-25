@@ -151,6 +151,9 @@ public class PauseMenu : MonoBehaviour
 
     public void QuitGame()
     {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        
         Time.timeScale = 1f;
         ResumeGame();
         GameManager.Instance.GoToMainMenu();
