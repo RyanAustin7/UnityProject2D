@@ -8,6 +8,8 @@ public class FireRatePowerup : MonoBehaviour
     public GameObject powerupObject; // GameObject reference
     public float flickerInterval = 0.1f;
     public float flickerStartTime = 1f;
+    private ShootingController shootingController;
+    private bool isActive = false; // Track if the powerup is active
 
     private Coroutine activeCoroutine;
 
@@ -28,13 +30,41 @@ public class FireRatePowerup : MonoBehaviour
 
         if (start)
         {
+            isActive = true;
             activeCoroutine = StartCoroutine(ChangeFireRate(true));
+            AkSoundEngine.SetRTPCValue("FireRate_Powerup", 1);
         }
         else
         {
+            isActive = false;
             StartCoroutine(ChangeFireRate(false));
         }
+
     }
+    public void LoseLifeLosePower()
+    {
+        if (isActive) // Only reset if the powerup is active
+        {
+            if (activeCoroutine != null)
+            {
+                StopCoroutine(activeCoroutine);
+            }
+
+            if (powerupObject != null)
+            {
+                powerupObject.SetActive(false);
+            }
+
+            if (shootingController != null)
+            {
+                shootingController.fireRate = shootingController.originalFireRate; // Reset the fire rate immediately
+            }
+
+            AkSoundEngine.SetRTPCValue("FireRate_Powerup", 0);
+            isActive = false; // Mark as inactive after resetting
+        }
+    }
+
 
     private IEnumerator ChangeFireRate(bool powerUp)
     {
@@ -53,21 +83,26 @@ public class FireRatePowerup : MonoBehaviour
 
                 yield return new WaitForSeconds(effectDuration - flickerStartTime);
 
+                StartCoroutine(PlayPowerupOverSoundWithDelay(0.2f));
+
                 float flickerEndTime = Time.time + flickerStartTime;
                 while (Time.time < flickerEndTime)
                 {
                     if (powerupObject != null)
                     {
                         powerupObject.SetActive(!powerupObject.activeSelf); // Flicker
+                        
                     }
                     yield return new WaitForSeconds(flickerInterval);
                 }
+
 
                 if (powerupObject != null)
                 {
                     powerupObject.SetActive(false); // Deactivate the powerup object
                 }
 
+                AkSoundEngine.SetRTPCValue("FireRate_Powerup", 0);
                 shootingController.fireRate += increasedFireRate;
             }
             else
@@ -79,5 +114,11 @@ public class FireRatePowerup : MonoBehaviour
                 }
             }
         }
+    }
+
+    private IEnumerator PlayPowerupOverSoundWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AkSoundEngine.PostEvent("Play_PowerupOver", gameObject);
     }
 }

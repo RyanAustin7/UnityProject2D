@@ -215,6 +215,10 @@ public class GameManager : MonoBehaviour
         player2DashController?.ResetDash();
         player1ShootingController?.ResetShooting();
         player2ShootingController?.ResetShooting();
+
+        AkSoundEngine.SetRTPCValue("FireRate_Powerup", 0);
+        AkSoundEngine.SetRTPCValue("Speed_Powerup", 0);
+        AkSoundEngine.SetRTPCValue("Size_Powerup", 0);
     }
 
     private void SetPlayerScale(Transform player, Vector3 scale)

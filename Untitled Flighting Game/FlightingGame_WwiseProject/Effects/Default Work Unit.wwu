@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{30B47A27-E220-4FDC-8E33-283612E471B3}" SchemaVersion="110">
+	<Effects>
+		<WorkUnit Name="Default Work Unit" ID="{30B47A27-E220-4FDC-8E33-283612E471B3}" PersistMode="Standalone">
+			<ChildrenList>
+				<Effect Name="Sidechain_Meter" ID="{718D5233-FD93-47F0-A9AA-BF956FB39F66}" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+					<PropertyList>
+						<Property Name="Max" Type="Real32" Value="10"/>
+						<Property Name="ReleaseTime" Type="Real32" Value="0"/>
+					</PropertyList>
+					<PluginData>
+	<GameParameter Name="Powerup_Sidechain" ID="{58A068E7-FDE3-4B72-8FE4-C60B3AA9EAC7}"/>
+</PluginData>
+				</Effect>
+				<Effect Name="Shooting_SideChain" ID="{7BC64F29-893D-4B31-ABB0-FAD100CC7F84}" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+					<PropertyList>
+						<Property Name="Max" Type="Real32" Value="6"/>
+						<Property Name="ReleaseTime" Type="Real32" Value="0"/>
+					</PropertyList>
+					<PluginData>
+	<GameParameter Name="Shooting_Sidechain" ID="{B9FAB1B1-513B-4BC0-B94C-9FBDA8AB1C22}"/>
+</PluginData>
+				</Effect>
+				<Effect Name="Shoot_Verb" ID="{4CBD76FC-98EC-4BA1-AC1F-C37EF87875AF}" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+					<PropertyList>
+						<Property Name="DecayTime" Type="Real32" Value="0.75"/>
+						<Property Name="Density" Type="Real32" Value="70"/>
+						<Property Name="ERPattern" Type="int32" Value="12"/>
+						<Property Name="RoomShape" Type="Real32" Value="80"/>
+						<Property Name="RoomSize" Type="Real32" Value="20"/>
+					</PropertyList>
+				</Effect>
+			</ChildrenList>
+		</WorkUnit>
+	</Effects>
+</WwiseDocument>

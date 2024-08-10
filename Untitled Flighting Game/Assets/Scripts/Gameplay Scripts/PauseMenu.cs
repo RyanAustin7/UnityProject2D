@@ -90,6 +90,8 @@ public class PauseMenu : MonoBehaviour
         controlsPanel.SetActive(false);
         areYouSurePanel.SetActive(false);
         canActivateButton = true;
+
+        AkSoundEngine.SetRTPCValue("Game_Paused", 1);
     }
 
     public void ResumeGame()
@@ -100,6 +102,8 @@ public class PauseMenu : MonoBehaviour
         controlsPanel.SetActive(false);
         areYouSurePanel.SetActive(false);
         canActivateButton = true;
+
+        AkSoundEngine.SetRTPCValue("Game_Paused", 0);
     }
 
     private void OpenSettings()

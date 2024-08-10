@@ -11,10 +11,6 @@ public class DashController : MonoBehaviour
     public float dashDamageAmount = 0.4f; // Amount of damage applied during a dash
     public float dashKnockbackScale = 1.5f; // Knockback scale for dash
 
-    [Header("Audio")]
-    public AudioSource dashAudioSource;
-    public AudioClip dashAudioClip;
-
     [Header("Trail Renderer")]
     public GameObject trailRendererObject;
 
@@ -34,6 +30,7 @@ public class DashController : MonoBehaviour
         if (Input.GetKeyDown(dashKey) && Time.time >= lastDashTime + dashCooldown)
         {
             StartDashing();
+            AkSoundEngine.PostEvent("PlayDash", gameObject);
         }
 
         if (isDashing)
@@ -91,10 +88,6 @@ public class DashController : MonoBehaviour
             trailRendererObject.SetActive(false);
         }
 
-        if (dashAudioSource != null && dashAudioClip != null)
-        {
-            dashAudioSource.PlayOneShot(dashAudioClip);
-        }
     }
 
     private void StopDashing()

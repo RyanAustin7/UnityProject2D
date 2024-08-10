@@ -2,8 +2,6 @@ using UnityEngine;
 
 public class Asteroid : MonoBehaviour
 {
-    private float maxRotation;
-    private float rotationZ;
     private Rigidbody2D rb;
 
     private float minSpeedX;
@@ -22,9 +20,7 @@ public class Asteroid : MonoBehaviour
         this.minScale = minScale;
         this.maxScale = maxScale;
 
-        maxRotation = 25f;
-        rotationZ = Random.Range(-maxRotation, maxRotation);
-
+        
         rb = GetComponent<Rigidbody2D>();
 
         float speedX = Random.Range(minSpeedX, maxSpeedX);
@@ -36,11 +32,6 @@ public class Asteroid : MonoBehaviour
         // Randomize the scale
         float randomScale = Random.Range(minScale, maxScale);
         transform.localScale = new Vector3(randomScale, randomScale, 1);
-    }
-
-    private void Update()
-    {
-        transform.Rotate(0, 0, rotationZ * Time.deltaTime);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

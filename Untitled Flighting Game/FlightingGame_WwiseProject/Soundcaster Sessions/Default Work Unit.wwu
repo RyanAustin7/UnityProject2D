@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{6F7CCE4B-0870-4C5C-B16C-519CA733698F}" SchemaVersion="110">
+	<SoundcasterSessions>
+		<WorkUnit Name="Default Work Unit" ID="{6F7CCE4B-0870-4C5C-B16C-519CA733698F}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="InitialTest" ID="{D670F22A-3CBE-4873-9D2B-FC58DA257304}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="StartGame" ID="{76D216A6-0477-43A7-898E-D0000DF8615B}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="P1_Shoot" ID="{B5189A3B-9388-4177-94E4-2BF48BF59A63}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SetState_A" ID="{E98378F9-172D-4027-8FA1-70A86A389F4A}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="P2_Shoot" ID="{22803DCF-2E8C-41BC-89E7-8C58F6B8032C}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SetState_B" ID="{F666F395-0894-4C18-A9B8-6E153E1795B3}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PlayDash" ID="{E1AB7897-EE54-4B19-9861-9598C8384F8A}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SetState_C" ID="{476FC20E-7D3A-49E7-A8DE-86F187B89AA0}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_PowerupOver" ID="{645F0ABC-5B5D-4F0B-AB87-BE033F19950D}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_PowerupPickup" ID="{A328CB37-31DD-4480-8406-6DC4CCC35EA3}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="4" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="Game_Paused" ID="{E63F6595-37D5-40AE-AE9C-D00B900B0FAD}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Size_Powerup" ID="{F462E9C6-C101-445D-B30B-7331DD181141}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="FireRate_Powerup" ID="{021A40D8-6760-497E-8E82-DD350137D09C}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Speed_Powerup" ID="{40E302AC-DCDD-4B0C-BDEF-DE9E8B171433}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Powerup_Sidechain" ID="{58A068E7-FDE3-4B72-8FE4-C60B3AA9EAC7}"/>
+							<Value>-48</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Shooting_Sidechain" ID="{B9FAB1B1-513B-4BC0-B94C-9FBDA8AB1C22}"/>
+							<Value>-48</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="State_A" ID="{26F5932B-691E-46E5-A0C7-D7E18BBC8DB5}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundcasterSessions>
+</WwiseDocument>

@@ -1,4 +1,5 @@
 using UnityEngine;
+using AK.Wwise;
 
 public class PlayerLife : MonoBehaviour
 {
@@ -25,12 +26,46 @@ public class PlayerLife : MonoBehaviour
             // Reset player damage when a life is lost
             ResetPlayerDamage();
 
+            // Reset active powerups on Life Lost
+            StopActivePowerups();
+
+            // Wwise event: Player 1 loses a life
+            if (this == GameManager.Instance.playerLife1)
+            {
+                AkSoundEngine.PostEvent("SetState_B", gameObject);
+            }
+            // Wwise event: Player 2 loses a life
+            else if (this == GameManager.Instance.playerLife2)
+            {
+                AkSoundEngine.PostEvent("SetState_A", gameObject);
+            }
+
+            // Check if both players have only 1 life left
+            if (GameManager.Instance.playerLife1.lives == 1 && GameManager.Instance.playerLife2.lives == 1)
+            {
+                AkSoundEngine.PostEvent("SetState_C", gameObject);
+            }
+
             if (lives <= 0)
             {
                 GameManager.Instance.EndGame();
             }
         }
     }
+
+    private void StopActivePowerups()
+    {
+        // Call LoseLifeLosePower for each type of powerup
+        FireRatePowerup fireRatePowerup = GetComponentInChildren<FireRatePowerup>();
+        fireRatePowerup?.LoseLifeLosePower();
+
+        SizePowerup sizePowerup = GetComponentInChildren<SizePowerup>();
+        sizePowerup?.LoseLifeLosePower();
+
+        SpeedPowerup speedPowerup = GetComponentInChildren<SpeedPowerup>();
+        speedPowerup?.LoseLifeLosePower();
+    }
+
 
     private void UpdateLifeIndicators()
     {

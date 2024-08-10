@@ -12,6 +12,7 @@ public class SpeedPowerup : MonoBehaviour
     public float flickerStartTime = 1f;
     private Vector3 newSize = new Vector3(1.1f, 1.1f, 1.1f);
     private Vector3 originalSize;
+    private bool isActive = false; // Track if the powerup is active
 
     private Coroutine activeCoroutine;
 
@@ -32,13 +33,47 @@ public class SpeedPowerup : MonoBehaviour
 
         if (start)
         {
+            isActive = true;
             activeCoroutine = StartCoroutine(ChangeSpeed(true));
+            AkSoundEngine.SetRTPCValue("Speed_Powerup", 1);
         }
         else
         {
+            isActive = false;
             StartCoroutine(ChangeSpeed(false));
         }
+        
     }
+
+    public void LoseLifeLosePower()
+    {
+        if (isActive) // Only reset if the powerup is active
+        {
+            if (activeCoroutine != null)
+            {
+                StopCoroutine(activeCoroutine);
+            }
+
+            if (powerupObject != null)
+            {
+                powerupObject.SetActive(false);
+            }
+
+            PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+            DashController dashController = GetComponent<DashController>();
+
+            if (playerMovement != null && dashController != null)
+            {
+                transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+                playerMovement.thrust = playerMovement.originalThrust;
+                playerMovement.rotationSpeed = playerMovement.originalRotationSpeed;
+                dashController.dashCooldown = 1.0f;
+            }
+            AkSoundEngine.SetRTPCValue("Speed_Powerup", 0);
+            isActive = false; // Mark as inactive after resetting
+        }
+    }
+
 
     private IEnumerator ChangeSpeed(bool powerUp)
     {
@@ -63,15 +98,20 @@ public class SpeedPowerup : MonoBehaviour
 
                 yield return new WaitForSeconds(effectDuration - flickerStartTime);
 
+                StartCoroutine(PlayPowerupOverSoundWithDelay(0.2f));
+
                 float flickerEndTime = Time.time + flickerStartTime;
                 while (Time.time < flickerEndTime)
                 {
                     if (powerupObject != null)
                     {
                         powerupObject.SetActive(!powerupObject.activeSelf); // Flicker
+                        
                     }
                     yield return new WaitForSeconds(flickerInterval);
                 }
+
+                
 
                 if (powerupObject != null)
                 {
@@ -83,6 +123,8 @@ public class SpeedPowerup : MonoBehaviour
                 playerMovement.thrust -= increasedSpeed;
                 playerMovement.rotationSpeed -= increasedRotationSpeed;
                 dashController.dashCooldown += decreaseDashCooldown; // Reset cooldown
+
+                AkSoundEngine.SetRTPCValue("Speed_Powerup", 0);
             }
             else
             {
@@ -95,5 +137,10 @@ public class SpeedPowerup : MonoBehaviour
                 }
             }
         }
+    }
+    private IEnumerator PlayPowerupOverSoundWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AkSoundEngine.PostEvent("Play_PowerupOver", gameObject);
     }
 }

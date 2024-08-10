@@ -9,6 +9,7 @@ public class SizePowerup : MonoBehaviour
     public float flickerInterval = 0.1f;
     public float flickerStartTime = 1f;
     private Vector3 originalSize;
+    private bool isActive = false; // Track if the powerup is active
 
     private Coroutine activeCoroutine;
 
@@ -18,6 +19,7 @@ public class SizePowerup : MonoBehaviour
         {
             powerupObject.SetActive(false); // Ensure the object is initially inactive
         }
+        originalSize = transform.localScale;
     }
 
     public void TogglePowerUp(bool start = true)
@@ -29,18 +31,44 @@ public class SizePowerup : MonoBehaviour
 
         if (start)
         {
+            isActive = true;
             activeCoroutine = StartCoroutine(ChangeSize(true));
+            AkSoundEngine.SetRTPCValue("Size_Powerup", 1);
         }
         else
         {
+            isActive = false;
             StartCoroutine(ChangeSize(false));
+        }
+        
+    }
+
+    public void LoseLifeLosePower()
+    {
+        if (isActive) // Only reset if the powerup is active
+        {
+            if (activeCoroutine != null)
+            {
+                StopCoroutine(activeCoroutine);
+            }
+
+            if (powerupObject != null)
+            {
+                powerupObject.SetActive(false);
+            }
+
+            transform.localScale = new Vector3(1.3f, 1.3f, 1.3f);
+            AkSoundEngine.SetRTPCValue("Size_Powerup", 0);
+            isActive = false; // Mark as inactive after resetting
         }
     }
 
-    private IEnumerator ChangeSize(bool powerUp)
+
+    public IEnumerator ChangeSize(bool powerUp)
     {
         if (powerUp)
         {
+            // Store original size before changing it
             originalSize = transform.localScale;
 
             transform.localScale = newSize;
@@ -52,12 +80,15 @@ public class SizePowerup : MonoBehaviour
 
             yield return new WaitForSeconds(effectDuration - flickerStartTime);
 
+            StartCoroutine(PlayPowerupOverSoundWithDelay(0.2f));
+
             float flickerEndTime = Time.time + flickerStartTime;
             while (Time.time < flickerEndTime)
             {
                 if (powerupObject != null)
                 {
                     powerupObject.SetActive(!powerupObject.activeSelf); // Flicker
+                
                 }
                 yield return new WaitForSeconds(flickerInterval);
             }
@@ -68,6 +99,7 @@ public class SizePowerup : MonoBehaviour
             }
 
             transform.localScale = originalSize;
+            AkSoundEngine.SetRTPCValue("Size_Powerup", 0);
         }
         else
         {
@@ -78,4 +110,11 @@ public class SizePowerup : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator PlayPowerupOverSoundWithDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        AkSoundEngine.PostEvent("Play_PowerupOver", gameObject);
+    }
+
 }

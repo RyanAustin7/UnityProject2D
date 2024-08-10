@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{96E33C10-D413-4B6A-9BB3-933739635B7D}" SchemaVersion="110">
+	<Busses>
+		<WorkUnit Name="Default Work Unit" ID="{96E33C10-D413-4B6A-9BB3-933739635B7D}" PersistMode="Standalone">
+			<ChildrenList>
+				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<ReferenceList>
+						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
+							<ObjectRef Name="System" ID="{1147F79E-9A66-4B20-9483-81269915CF05}" WorkUnitID="{8CB635BE-FD55-4E4A-9ED8-3AAA3E683321}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Bus Name="MX" ID="{5F2E4E74-45A6-4E19-AF9C-AB8552E057BD}">
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{528415BA-5E74-4201-8B65-88CD2C3EE42B}" ShortID="423491898">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="BusVolume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="Powerup_Sidechain" ID="{58A068E7-FDE3-4B72-8FE4-C60B3AA9EAC7}" WorkUnitID="{85D8AE96-D000-4AB0-9BAE-6EEBB44418C5}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{FD6B1E20-BDAB-4C4D-91E4-2837659DADE0}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>-48</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>-15</XPos>
+																		<YPos>-5.5</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>6</XPos>
+																		<YPos>-5</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{168EBEFE-593B-4D14-A060-3E7A3E5EBC85}" ShortID="247355490">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="BusVolume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="Shooting_Sidechain" ID="{B9FAB1B1-513B-4BC0-B94C-9FBDA8AB1C22}" WorkUnitID="{85D8AE96-D000-4AB0-9BAE-6EEBB44418C5}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{0F71946B-8BCA-4B59-8048-EF1E36250727}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>-48</XPos>
+																		<YPos>0</YPos>
+																		<Flags>5</Flags>
+																		<SegmentShape>Log1</SegmentShape>
+																	</Point>
+																	<Point>
+																		<XPos>-20</XPos>
+																		<YPos>-3</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>6</XPos>
+																		<YPos>-3</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
+						<Bus Name="SFX" ID="{8128BF88-BFDB-4CDA-8B03-969C499546D4}">
+							<ChildrenList>
+								<Bus Name="Powerups" ID="{66C3A230-FC50-4EE2-83B0-EAC8177D7285}">
+									<ReferenceList>
+										<Reference Name="Effect0" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+											<ObjectRef Name="Sidechain_Meter" ID="{718D5233-FD93-47F0-A9AA-BF956FB39F66}" WorkUnitID="{30B47A27-E220-4FDC-8E33-283612E471B3}"/>
+										</Reference>
+									</ReferenceList>
+								</Bus>
+								<Bus Name="Shoot_Dash" ID="{52854FD0-8764-4F8E-A9B1-A4072470AFA9}">
+									<PropertyList>
+										<Property Name="UserAuxSendVolume0" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Effect0" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+											<ObjectRef Name="Shooting_SideChain" ID="{7BC64F29-893D-4B31-ABB0-FAD100CC7F84}" WorkUnitID="{30B47A27-E220-4FDC-8E33-283612E471B3}"/>
+										</Reference>
+										<Reference Name="UserAuxSend0">
+											<ObjectRef Name="VERB" ID="{AB19B29F-F783-4E73-925C-82C661955312}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AuxBus Name="VERB" ID="{AB19B29F-F783-4E73-925C-82C661955312}">
+											<ReferenceList>
+												<Reference Name="Effect0" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+													<ObjectRef Name="Shoot_Verb" ID="{4CBD76FC-98EC-4BA1-AC1F-C37EF87875AF}" WorkUnitID="{30B47A27-E220-4FDC-8E33-283612E471B3}"/>
+												</Reference>
+											</ReferenceList>
+										</AuxBus>
+									</ChildrenList>
+								</Bus>
+							</ChildrenList>
+						</Bus>
+					</ChildrenList>
+				</Bus>
+			</ChildrenList>
+		</WorkUnit>
+	</Busses>
+</WwiseDocument>

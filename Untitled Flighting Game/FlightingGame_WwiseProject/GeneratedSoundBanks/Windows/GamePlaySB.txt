@@ -1,0 +1,59 @@
+Event	ID	Name			Wwise Object Path	Notes
+	497184544	Play_PowerupOver			\Default Work Unit\Events\Play_PowerupOver	
+	670171959	P2_Shoot			\Default Work Unit\Events\P2_Shoot	
+	1030691167	PlayDash			\Default Work Unit\Events\PlayDash	
+	1239999412	P1_Shoot			\Default Work Unit\Events\P1_Shoot	
+	1521187885	StartGame			\Default Work Unit\Events\StartGame	
+	2771630312	SetState_C			\Default Work Unit\Events\SetState_C	
+	2771630313	SetState_B			\Default Work Unit\Events\SetState_B	
+	2771630314	SetState_A			\Default Work Unit\Events\SetState_A	
+	3920027666	Play_PowerupPickup			\Default Work Unit\Events\Play_PowerupPickup	
+
+State Group	ID	Name			Wwise Object Path	Notes
+	574587799	GameplayStates			\Default Work Unit\GameplayStates	
+
+State	ID	Name	State Group			Notes
+	748895195	None	GameplayStates			
+	1277114460	State_A	GameplayStates			
+	1277114462	State_C	GameplayStates			
+	1277114463	State_B	GameplayStates			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	1931254523	Size_Powerup			\Default Work Unit\Size_Powerup	
+	2668473039	Speed_Powerup			\Default Work Unit\Speed_Powerup	
+	3005377306	FireRate_Powerup			\Default Work Unit\FireRate_Powerup	
+	3367563548	Game_Paused			\Default Work Unit\Game_Paused	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	10898194	B_Gtr	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\B_Gtr_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\B\B_Segment\B_Gtr		10685392
+	66085231	C_Bass	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\C_Bass_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\C\C_Segment\C_Bass		8681900
+	70175420	Dash	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\Woosh_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ActorMixer\Switch_Container\Dash		28668
+	84497821	Transition_Longer	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\Transition_Drum_3_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\Transitions\Transition_Drum_2\Transition_Longer		334072
+	99385837	B_Bass	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\B_Bass_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\B\B_Segment\B_Bass		10685392
+	114682688	A_Marimba	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\A_Marimba_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\A\A_Segment\A_Marimba		8850552
+	152904435	Powerup_Pickup	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\Powerup_Pickup_F8F29E3A.wem		\Actor-Mixer Hierarchy\Default Work Unit\ActorMixer\Switch_Container\Powerup_Pickup		245092
+	166144058	Transition_Drum_1	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\Transition_Drum_1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\Transitions\Transition_Drum_1\Transition_Drum_1		334072
+	206636412	Powerup_Over_V2	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\Powerup_Over_V2_C0D32B7A.wem		\Actor-Mixer Hierarchy\Default Work Unit\ActorMixer\Switch_Container\Powerup_Over_V2		374944
+	303140396	B_Marimba	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\B_Marimba_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\B\B_Segment\B_Marimba		10018272
+	331294253	Other_One	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\Transition_Drum_4_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\Transitions\Transition_Drum_4\Other_One		334072
+	366518082	A_Gtr_SOLO	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\A_Gtr_SOLO_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\A\A_Segment\A_Gtr_SOLO		8681964
+	409077460	A_Drum	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\A_Drum_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\A\A_Segment\A_Drum		8681964
+	425432998	C_Piano_SOLO	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\C_Piano_SOLO_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\C\C_Segment\C_Piano_SOLO		8681900
+	442535613	B_Piano	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\B_Piano_1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\B\B_Segment\B_Piano		10685392
+	466256649	B_Piano_SOLO	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\B_Piano_SOLO_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\B\B_Segment\B_Piano_SOLO		10685392
+	496854891	A_Gtr	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\A_Gtr_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\A\A_Segment\A_Gtr		8681964
+	498286219	C_Piano	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\C_Piano_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\C\C_Segment\C_Piano		8681900
+	607727682	A_Piano	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\A_Piano_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\A\A_Segment\A_Piano		8681964
+	685654288	B_Piano	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\B_Piano_2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\B\B_Segment\B_Piano		10685392
+	687839427	C_Gtr_SOLO	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\C_Gtr_SOLO_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\C\C_Segment\C_Gtr_SOLO		8681900
+	721664613	C_Gtr	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\C_Gtr_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\C\C_Segment\C_Gtr		8681900
+	726677227	P1_Shoot	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\P2_Shoot_10C4C929.wem		\Actor-Mixer Hierarchy\Default Work Unit\ActorMixer\Switch_Container\P1_Shoot		31766
+	748058292	B_Gtr_SOLO	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\B_Gtr_SOLO_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\B\B_Segment\B_Gtr_SOLO		10685392
+	755367939	C_Marimba	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\C_Marimba_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\C\C_Segment\C_Marimba		7347012
+	764742269	Short_Drum_Transition	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\Transition_Drum_2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\Transitions\Transition_Drum_3\Short_Drum_Transition		334072
+	806380007	A_Piano_SOLO	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\A_Piano_SOLO_1_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\A\A_Segment\A_Piano_SOLO		8681964
+	881175217	C_Drum	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\C_Drum_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\C\C_Segment\C_Drum		8681900
+	908569832	A_Piano_SOLO	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\A_Piano_SOLO_2_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\A\A_Segment\A_Piano_SOLO		8681964
+	942387744	A_Bass	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\A_Bass_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\A\A_Segment\A_Bass		8681964
+	1004240270	B_Drum	Y:\Documents\GitHub\UnityProject2D\Untitled Flighting Game\FlightingGame_WwiseProject\.cache\Windows\SFX\B_Drum_D79FB2B7.wem		\Interactive Music Hierarchy\Default Work Unit\Switch\B\B_Segment\B_Drum		10685392
+

@@ -1,0 +1,46 @@
+State Group	ID	Name			Wwise Object Path	Notes
+	574587799	GameplayStates			\Default Work Unit\GameplayStates	
+
+State	ID	Name	State Group			Notes
+	748895195	None	GameplayStates			
+	1277114460	State_A	GameplayStates			
+	1277114462	State_C	GameplayStates			
+	1277114463	State_B	GameplayStates			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
+	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	
+	841620460	Concrete			\Factory Acoustic Textures\Textures\Concrete	
+	1519662915	Shooting_Sidechain			\Default Work Unit\Shooting_Sidechain	
+	1755085759	Wood_Deep			\Factory Acoustic Textures\Textures\Wood_Deep	
+	1873957695	Anechoic			\Factory Acoustic Textures\Textures\Anechoic	
+	1970351858	Fabric			\Factory Acoustic Textures\Textures\Fabric	
+	2058049674	Wood			\Factory Acoustic Textures\Textures\Wood	
+	2412606308	Carpet			\Factory Acoustic Textures\Textures\Carpet	
+	2637588553	Tile			\Factory Acoustic Textures\Textures\Tile	
+	2928161104	Curtains			\Factory Acoustic Textures\Textures\Curtains	
+	3195498748	Cork_Tiles			\Factory Acoustic Textures\Textures\Cork_Tiles	
+	3230143762	Powerup_Sidechain			\Default Work Unit\Powerup_Sidechain	
+	3670307564	Drywall			\Factory Acoustic Textures\Textures\Drywall	
+	4168643977	Acoustic_Banner			\Factory Acoustic Textures\Textures\Acoustic_Banner	
+	4262522749	Wood_Bright			\Factory Acoustic Textures\Textures\Wood_Bright	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
+	1685527054	MX			\Default Work Unit\Master Audio Bus\MX	
+	2600048462	Powerups			\Default Work Unit\Master Audio Bus\SFX\Powerups	
+	2752908689	Shoot_Dash			\Default Work Unit\Master Audio Bus\SFX\Shoot_Dash	
+	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	3657263530	VERB			\Default Work Unit\Master Audio Bus\SFX\Shoot_Dash\VERB	
+
+Effect plug-ins	ID	Name	Type				Notes
+	1519662915	Shooting_SideChain	Wwise Meter			
+	1992114213	Sidechain_Meter	Wwise Meter			
+	2814229946	Shoot_Verb	Wwise RoomVerb			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

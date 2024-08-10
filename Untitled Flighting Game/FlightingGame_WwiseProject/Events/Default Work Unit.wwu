@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Events" ID="{CD5CB375-666F-4D01-9F82-AEE5901D1F67}" ShortID="925809311">
+					<ChildrenList>
+						<Event Name="SetState_B" ID="{F666F395-0894-4C18-A9B8-6E153E1795B3}">
+							<ChildrenList>
+								<Action Name="" ID="{724FE43D-DE65-4F87-B328-2F7D1C8564FC}" ShortID="1026175070">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="State_B" ID="{FC162EA7-8722-48EC-BF6E-350150CEC61F}" WorkUnitID="{ECA5CCCB-2898-4600-B563-DA1B0890876C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SetState_A" ID="{E98378F9-172D-4027-8FA1-70A86A389F4A}">
+							<ChildrenList>
+								<Action Name="" ID="{2AD0C964-6867-436C-B567-99641FC69694}" ShortID="90375224">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="State_A" ID="{26F5932B-691E-46E5-A0C7-D7E18BBC8DB5}" WorkUnitID="{ECA5CCCB-2898-4600-B563-DA1B0890876C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="SetState_C" ID="{476FC20E-7D3A-49E7-A8DE-86F187B89AA0}">
+							<ChildrenList>
+								<Action Name="" ID="{1993BE54-3E10-46D6-B65B-DE6D2E55CBC7}" ShortID="239564153">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="State_C" ID="{A4353359-F1CD-4CD5-A9E0-2F73E951AE0C}" WorkUnitID="{ECA5CCCB-2898-4600-B563-DA1B0890876C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="StartGame" ID="{76D216A6-0477-43A7-898E-D0000DF8615B}">
+							<ChildrenList>
+								<Action Name="" ID="{9E188C38-C45E-43C6-A8D7-732CEDF73CFD}" ShortID="121214115">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="3"/>
+									</PropertyList>
+									<ReferenceList/>
+								</Action>
+								<Action Name="" ID="{576A99B1-AA60-49D2-818B-205095E5E092}" ShortID="437352705">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="State_A" ID="{26F5932B-691E-46E5-A0C7-D7E18BBC8DB5}" WorkUnitID="{ECA5CCCB-2898-4600-B563-DA1B0890876C}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F79540C5-025E-4371-BEC2-AE9613392FA6}" ShortID="939798866">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Switch" ID="{052DBC16-346D-49E7-A57D-D6064DD08F71}" WorkUnitID="{4D1684BC-A918-4FBA-8AB6-35FEF6ABE207}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="P1_Shoot" ID="{B5189A3B-9388-4177-94E4-2BF48BF59A63}">
+							<ChildrenList>
+								<Action Name="" ID="{F5B9693A-9524-4279-B612-C62EBD4791D4}" ShortID="260353282">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="P1_Shoot" ID="{9A792376-0A1B-4CEB-A02A-B9C08A25DE3F}" WorkUnitID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="P2_Shoot" ID="{22803DCF-2E8C-41BC-89E7-8C58F6B8032C}">
+							<ChildrenList>
+								<Action Name="" ID="{3A069EF0-7CA4-4F68-B6AE-389D3520C295}" ShortID="897679169">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="P2_Shoot" ID="{C436D39E-A94C-4F88-A7C5-9AB8C7C22891}" WorkUnitID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="PlayDash" ID="{E1AB7897-EE54-4B19-9861-9598C8384F8A}">
+							<ChildrenList>
+								<Action Name="" ID="{C9440C13-214C-4ACC-9DCF-3211FAFDE999}" ShortID="684017012">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Dash" ID="{42429909-C33C-4BC4-9492-8E09619AF925}" WorkUnitID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_PowerupPickup" ID="{A328CB37-31DD-4480-8406-6DC4CCC35EA3}">
+							<ChildrenList>
+								<Action Name="" ID="{F3FDBDAF-B008-41E3-8FE2-9E87C20BDFD5}" ShortID="882476248">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Powerup_Pickup" ID="{266E0163-229B-41B2-B7DF-D725D043D030}" WorkUnitID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_PowerupOver" ID="{645F0ABC-5B5D-4F0B-AB87-BE033F19950D}">
+							<ChildrenList>
+								<Action Name="" ID="{1CDC01C4-6AD8-472F-A24E-45D233074ED5}" ShortID="182180271">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Powerup_Over_V2" ID="{DA879882-5571-44FC-BFF3-3D6DDB8AFA11}" WorkUnitID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

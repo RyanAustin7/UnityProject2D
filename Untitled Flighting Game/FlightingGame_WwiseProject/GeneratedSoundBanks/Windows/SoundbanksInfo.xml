@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../../</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows/</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{960A3451-6624-9CC6-99FB-A34B8592A076}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<ShareSets>
+					<Plugin Id="1519662915" Name="Shooting_SideChain" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="1992114213" Name="Sidechain_Meter" LibName="Wwise Meter" LibId="8454147"/>
+					<Plugin Id="2814229946" Name="Shoot_Verb" LibName="Wwise RoomVerb" LibId="7733251"/>
+				</ShareSets>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="393239870" Name="SFX"/>
+				<Bus Id="1685527054" Name="MX"/>
+				<Bus Id="2600048462" Name="Powerups">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1992114213"/>
+						</ShareSets>
+					</PluginRefs>
+				</Bus>
+				<Bus Id="2752908689" Name="Shoot_Dash">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="1519662915"/>
+						</ShareSets>
+					</PluginRefs>
+					<AuxBusRefs>
+						<AuxBusRef Id="3657263530" Name="VERB"/>
+					</AuxBusRefs>
+				</Bus>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+			<AuxBusses>
+				<AuxBus Id="3657263530" Name="VERB">
+					<PluginRefs>
+						<ShareSets>
+							<PluginRef Id="2814229946"/>
+						</ShareSets>
+					</PluginRefs>
+				</AuxBus>
+			</AuxBusses>
+			<GameParameters>
+				<GameParameter Id="822163944" Name="SS_Air_RPM"/>
+				<GameParameter Id="1029930033" Name="SS_Air_Fury"/>
+				<GameParameter Id="1351367891" Name="SS_Air_Fear"/>
+				<GameParameter Id="1519662915" Name="Shooting_Sidechain"/>
+				<GameParameter Id="1931254523" Name="Size_Powerup"/>
+				<GameParameter Id="2648548617" Name="SS_Air_Month"/>
+				<GameParameter Id="2668473039" Name="Speed_Powerup"/>
+				<GameParameter Id="3002758120" Name="SS_Air_Freefall"/>
+				<GameParameter Id="3005377306" Name="FireRate_Powerup"/>
+				<GameParameter Id="3074696722" Name="SS_Air_Size"/>
+				<GameParameter Id="3203397129" Name="SS_Air_TimeOfDay"/>
+				<GameParameter Id="3230143762" Name="Powerup_Sidechain"/>
+				<GameParameter Id="3367563548" Name="Game_Paused"/>
+				<GameParameter Id="3715662592" Name="SS_Air_Storm"/>
+				<GameParameter Id="3847924954" Name="SS_Air_Presence"/>
+				<GameParameter Id="4160247818" Name="SS_Air_Turbulence"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="574587799" Name="GameplayStates">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="1277114460" Name="State_A"/>
+						<State Id="1277114462" Name="State_C"/>
+						<State Id="1277114463" Name="State_B"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+			<AcousticTextures>
+				<AcousticTexture Id="504532776" Name="Brick">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="12"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="18"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="23"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="35"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="513139656" Name="Mountain">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="841620460" Name="Concrete">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="6"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="6"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="6"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="14"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="1755085759" Name="Wood_Deep">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="1"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="8"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="20"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="35"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="1873957695" Name="Anechoic">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="1970351858" Name="Fabric">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="3"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="13"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="48"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="72"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2058049674" Name="Wood">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="32"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="25"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="20"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="35"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2412606308" Name="Carpet">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="46"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="45"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="76"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2637588553" Name="Tile">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="67"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="41"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="12"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="0"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="2928161104" Name="Curtains">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="7"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="60"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="0"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="84"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="3195498748" Name="Cork_Tiles">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="14"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="30"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="73"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="3670307564" Name="Drywall">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="2"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="2"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="2"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="2"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="4168643977" Name="Acoustic_Banner">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="37"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="100"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="100"/>
+					</Properties>
+				</AcousticTexture>
+				<AcousticTexture Id="4262522749" Name="Wood_Bright">
+					<Properties>
+						<Property Name="AbsorptionLow" Type="Real32" Value="32"/>
+						<Property Name="AbsorptionMidLow" Type="Real32" Value="25"/>
+						<Property Name="AbsorptionMidHigh" Type="Real32" Value="10"/>
+						<Property Name="AbsorptionHigh" Type="Real32" Value="9"/>
+					</Properties>
+				</AcousticTexture>
+			</AcousticTextures>
+		</SoundBank>
+		<SoundBank Id="4264839874" Type="User" Language="SFX" Hash="{6691D046-52AB-D578-3CDE-8FE9B6DBB5FE}">
+			<ShortName>GamePlaySB</ShortName>
+			<Path>GamePlaySB.bnk</Path>
+			<Media>
+				<File Id="10898194" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Gtr.wav</ShortName>
+					<CachePath>SFX/B_Gtr_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="66085231" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>C_Bass.wav</ShortName>
+					<CachePath>SFX/C_Bass_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="70175420" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Woosh.wav</ShortName>
+					<CachePath>SFX/Woosh_10C4C929.wem</CachePath>
+				</File>
+				<File Id="84497821" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Transition_Drum_3.wav</ShortName>
+					<CachePath>SFX/Transition_Drum_3_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="99385837" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Bass.wav</ShortName>
+					<CachePath>SFX/B_Bass_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="114682688" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Marimba.wav</ShortName>
+					<CachePath>SFX/A_Marimba_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="152904435" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Powerup_Pickup.wav</ShortName>
+					<CachePath>SFX/Powerup_Pickup_F8F29E3A.wem</CachePath>
+				</File>
+				<File Id="166144058" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Transition_Drum_1.wav</ShortName>
+					<CachePath>SFX/Transition_Drum_1_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="206636412" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Powerup_Over_V2.wav</ShortName>
+					<CachePath>SFX/Powerup_Over_V2_C0D32B7A.wem</CachePath>
+				</File>
+				<File Id="303140396" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Marimba.wav</ShortName>
+					<CachePath>SFX/B_Marimba_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="331294253" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Transition_Drum_4.wav</ShortName>
+					<CachePath>SFX/Transition_Drum_4_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="366518082" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Gtr_SOLO.wav</ShortName>
+					<CachePath>SFX/A_Gtr_SOLO_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="409077460" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Drum.wav</ShortName>
+					<CachePath>SFX/A_Drum_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="425432998" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>C_Piano_SOLO.wav</ShortName>
+					<CachePath>SFX/C_Piano_SOLO_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="442535613" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Piano_1.wav</ShortName>
+					<CachePath>SFX/B_Piano_1_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="466256649" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Piano_SOLO.wav</ShortName>
+					<CachePath>SFX/B_Piano_SOLO_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="496854891" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Gtr.wav</ShortName>
+					<CachePath>SFX/A_Gtr_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="498286219" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>C_Piano.wav</ShortName>
+					<CachePath>SFX/C_Piano_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="607727682" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Piano.wav</ShortName>
+					<CachePath>SFX/A_Piano_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="685654288" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Piano_2.wav</ShortName>
+					<CachePath>SFX/B_Piano_2_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="687839427" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>C_Gtr_SOLO.wav</ShortName>
+					<CachePath>SFX/C_Gtr_SOLO_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="721664613" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>C_Gtr.wav</ShortName>
+					<CachePath>SFX/C_Gtr_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="726677227" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>P2_Shoot.wav</ShortName>
+					<CachePath>SFX/P2_Shoot_10C4C929.wem</CachePath>
+				</File>
+				<File Id="748058292" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Gtr_SOLO.wav</ShortName>
+					<CachePath>SFX/B_Gtr_SOLO_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="755367939" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>C_Marimba.wav</ShortName>
+					<CachePath>SFX/C_Marimba_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="764742269" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Transition_Drum_2.wav</ShortName>
+					<CachePath>SFX/Transition_Drum_2_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="806380007" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Piano_SOLO_1.wav</ShortName>
+					<CachePath>SFX/A_Piano_SOLO_1_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="881175217" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>C_Drum.wav</ShortName>
+					<CachePath>SFX/C_Drum_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="908569832" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Piano_SOLO_2.wav</ShortName>
+					<CachePath>SFX/A_Piano_SOLO_2_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="942387744" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Bass.wav</ShortName>
+					<CachePath>SFX/A_Bass_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="1004240270" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Drum.wav</ShortName>
+					<CachePath>SFX/B_Drum_D79FB2B7.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1239999412" Name="P1_Shoot" DurationType="OneShot" DurationMin="0.24667296" DurationMax="0.2613409">
+					<MediaRefs>
+						<MediaRef Id="726677227"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="670171959" Name="P2_Shoot" DurationType="OneShot" DurationMin="0.32926893" DurationMax="0.34884825">
+					<MediaRefs>
+						<MediaRef Id="726677227"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="497184544" Name="Play_PowerupOver" DurationType="OneShot" DurationMin="2.1249886" DurationMax="2.1249886">
+					<MediaRefs>
+						<MediaRef Id="206636412"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3920027666" Name="Play_PowerupPickup" DurationType="OneShot" DurationMin="1.3888662" DurationMax="1.3888662">
+					<MediaRefs>
+						<MediaRef Id="152904435"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1030691167" Name="PlayDash" DurationType="OneShot" DurationMin="0.16197279" DurationMax="0.16197279">
+					<MediaRefs>
+						<MediaRef Id="70175420"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2771630314" Name="SetState_A" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="574587799" Id="1277114460" Name="State_A"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="2771630313" Name="SetState_B" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="574587799" Id="1277114463" Name="State_B"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="2771630312" Name="SetState_C" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="574587799" Id="1277114462" Name="State_C"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1521187885" Name="StartGame" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="84497821"/>
+						<MediaRef Id="166144058"/>
+						<MediaRef Id="331294253"/>
+						<MediaRef Id="764742269"/>
+					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="574587799" Id="1277114460"/>
+							<MediaRefs>
+								<MediaRef Id="114682688"/>
+								<MediaRef Id="366518082"/>
+								<MediaRef Id="409077460"/>
+								<MediaRef Id="496854891"/>
+								<MediaRef Id="607727682"/>
+								<MediaRef Id="806380007"/>
+								<MediaRef Id="908569832"/>
+								<MediaRef Id="942387744"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="574587799" Id="1277114463"/>
+							<MediaRefs>
+								<MediaRef Id="10898194"/>
+								<MediaRef Id="99385837"/>
+								<MediaRef Id="303140396"/>
+								<MediaRef Id="442535613"/>
+								<MediaRef Id="466256649"/>
+								<MediaRef Id="685654288"/>
+								<MediaRef Id="748058292"/>
+								<MediaRef Id="1004240270"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="State" GroupId="574587799" Id="1277114462"/>
+							<MediaRefs>
+								<MediaRef Id="66085231"/>
+								<MediaRef Id="425432998"/>
+								<MediaRef Id="498286219"/>
+								<MediaRef Id="687839427"/>
+								<MediaRef Id="721664613"/>
+								<MediaRef Id="755367939"/>
+								<MediaRef Id="881175217"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="574587799" Id="1277114460" Name="State_A"/>
+					</ActionSetState>
+				</Event>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="1931254523" Name="Size_Powerup"/>
+				<GameParameter Id="2668473039" Name="Speed_Powerup"/>
+				<GameParameter Id="3005377306" Name="FireRate_Powerup"/>
+				<GameParameter Id="3367563548" Name="Game_Paused"/>
+			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="574587799" Name="GameplayStates">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="1277114460" Name="State_A"/>
+						<State Id="1277114462" Name="State_C"/>
+						<State Id="1277114463" Name="State_B"/>
+					</States>
+				</StateGroup>
+			</StateGroups>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{644F8165-05F4-BD43-BC89-0471D377B019}</FileHash>
+</SoundBanksInfo>

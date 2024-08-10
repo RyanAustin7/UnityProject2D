@@ -17,7 +17,7 @@ public class PowerupPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player1") || collision.CompareTag("Player2"))
         {
-            Debug.Log("Powerup picked up by: " + collision.tag);
+            AkSoundEngine.PostEvent("Play_PowerupPickup", gameObject);
 
             // Find the player Powerup components
             FireRatePowerup fireRatePowerup = collision.GetComponentInChildren<FireRatePowerup>();

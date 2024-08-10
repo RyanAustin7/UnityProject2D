@@ -10,21 +10,11 @@ public class ShootingController : MonoBehaviour
     public float fireRate = 0.32f;
     public KeyCode shootingKey = KeyCode.Space;
 
-    [Header("Audio")]
-    public AudioSource shootingAudioSource;
-    public AudioClip shootingAudioClip;
-
     private float nextFireTime = 0f;
     [HideInInspector] public float originalFireRate; // Store original fire rate value
 
     private void Awake()
     {
-        // Ensure that the AudioSource is assigned if not already
-        if (shootingAudioSource == null)
-        {
-            shootingAudioSource = GetComponent<AudioSource>();
-        }
-
         originalFireRate = fireRate; // Initialize original fire rate value
     }
 
@@ -47,6 +37,7 @@ public class ShootingController : MonoBehaviour
         {
             nextFireTime = Time.time + fireRate;
             Shoot();
+          
         }
     }
 
@@ -55,12 +46,17 @@ public class ShootingController : MonoBehaviour
         GameObject bulletClone = Instantiate(bullet, bulletSpawn.position, bulletSpawn.rotation);
         StartCoroutine(DestroyBulletAfterDelay(bulletClone));
 
-        // Play shooting sound
-        if (shootingAudioSource != null && shootingAudioClip != null)
+        // Play Wwise shooting sound based on the player's tag
+        if (gameObject.CompareTag("Player1"))
         {
-            shootingAudioSource.PlayOneShot(shootingAudioClip);
+            AkSoundEngine.PostEvent("P1_Shoot", gameObject);
+        }
+        else if (gameObject.CompareTag("Player2"))
+        {
+            AkSoundEngine.PostEvent("P2_Shoot", gameObject);
         }
     }
+
 
     private IEnumerator DestroyBulletAfterDelay(GameObject bulletClone)
     {

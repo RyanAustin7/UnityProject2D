@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}" SchemaVersion="110">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="ActorMixer" ID="{C5A00F7F-6CA0-4B0E-B14D-E334A30CF33F}" ShortID="634965903">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CF341D2F-45C8-4170-827C-04E6C6AF340C}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{8128BF88-BFDB-4CDA-8B03-969C499546D4}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<SwitchContainer Name="Switch_Container" ID="{08058586-075E-4590-A06E-56026BDDD118}" ShortID="564968016">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="22"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CF341D2F-45C8-4170-827C-04E6C6AF340C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Dash" ID="{42429909-C33C-4BC4-9492-8E09619AF925}" ShortID="359417617">
+									<PropertyList>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CF341D2F-45C8-4170-827C-04E6C6AF340C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Shoot_Dash" ID="{52854FD0-8764-4F8E-A9B1-A4072470AFA9}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Woosh" ID="{AD7CFEF1-688B-4318-8AF1-C4050FE40F75}">
+											<Language>SFX</Language>
+											<AudioFile>Woosh.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="70175420"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Woosh" ID="{AD7CFEF1-688B-4318-8AF1-C4050FE40F75}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="P2_Shoot" ID="{C436D39E-A94C-4F88-A7C5-9AB8C7C22891}" ShortID="694888736">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>100</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{F32B00B7-4B51-4258-A54E-E67E6977DA49}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="50"/>
+															<Property Name="Min" Type="Real64" Value="-50"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CF341D2F-45C8-4170-827C-04E6C6AF340C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Shoot_Dash" ID="{52854FD0-8764-4F8E-A9B1-A4072470AFA9}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="P2_Shoot" ID="{9FAF40DD-4149-44AA-A869-526AE1D47031}">
+											<Language>SFX</Language>
+											<AudioFile>P2_Shoot.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="726677227"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="P2_Shoot" ID="{9FAF40DD-4149-44AA-A869-526AE1D47031}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="P1_Shoot" ID="{9A792376-0A1B-4CEB-A02A-B9C08A25DE3F}" ShortID="942588894">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>20</Value>
+											</ValueList>
+										</Property>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>600</Value>
+											</ValueList>
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{6F035FA3-F925-40BC-86F8-C396A6C87A29}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="50"/>
+															<Property Name="Min" Type="Real64" Value="-50"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="UseMaxSoundPerInstance" Type="bool">
+											<ValueList>
+												<Value>True</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CF341D2F-45C8-4170-827C-04E6C6AF340C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Shoot_Dash" ID="{52854FD0-8764-4F8E-A9B1-A4072470AFA9}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="P2_Shoot" ID="{40DA0A47-10FF-4179-9C7E-4C112DC458DF}">
+											<Language>SFX</Language>
+											<AudioFile>P2_Shoot.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="726677227"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="P2_Shoot" ID="{40DA0A47-10FF-4179-9C7E-4C112DC458DF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Powerup_Over" ID="{09A8F811-1860-41B4-9D2B-8C0E7B60BB19}" ShortID="534386791">
+									<PropertyList>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CF341D2F-45C8-4170-827C-04E6C6AF340C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Powerups" ID="{66C3A230-FC50-4EE2-83B0-EAC8177D7285}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Powerup_Over" ID="{4F87A711-D973-4BE2-8784-5795300267B1}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0204517802621611"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.163614242097289"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.498347840262228"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Powerup_Over.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="293461614"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Powerup_Over" ID="{4F87A711-D973-4BE2-8784-5795300267B1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Powerup_Pickup" ID="{266E0163-229B-41B2-B7DF-D725D043D030}" ShortID="472029516">
+									<PropertyList>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CF341D2F-45C8-4170-827C-04E6C6AF340C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Powerups" ID="{66C3A230-FC50-4EE2-83B0-EAC8177D7285}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Powerup_Pickup" ID="{9DE6176B-A4DE-41DB-97D5-01B1FEE7189D}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0234341880734296"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0718648434251843"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Powerup_Pickup.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="152904435"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Powerup_Pickup" ID="{9DE6176B-A4DE-41DB-97D5-01B1FEE7189D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Powerup_Over_V2" ID="{DA879882-5571-44FC-BFF3-3D6DDB8AFA11}" ShortID="191913645">
+									<PropertyList>
+										<Property Name="OverrideOutput" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CF341D2F-45C8-4170-827C-04E6C6AF340C}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Powerups" ID="{66C3A230-FC50-4EE2-83B0-EAC8177D7285}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Powerup_Over_V2" ID="{2F0CA42C-CAA4-44A7-968D-1A6F71FFB386}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0358547018357399"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.102783478595788"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Powerup_Over_V2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="206636412"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Powerup_Over_V2" ID="{2F0CA42C-CAA4-44A7-968D-1A6F71FFB386}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Dash" ID="{42429909-C33C-4BC4-9492-8E09619AF925}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Powerup_Over" ID="{09A8F811-1860-41B4-9D2B-8C0E7B60BB19}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Powerup_Pickup" ID="{266E0163-229B-41B2-B7DF-D725D043D030}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="P1_Shoot" ID="{9A792376-0A1B-4CEB-A02A-B9C08A25DE3F}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Powerup_Over_V2" ID="{DA879882-5571-44FC-BFF3-3D6DDB8AFA11}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="P2_Shoot" ID="{C436D39E-A94C-4F88-A7C5-9AB8C7C22891}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+							</GroupingInfo>
+						</SwitchContainer>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
