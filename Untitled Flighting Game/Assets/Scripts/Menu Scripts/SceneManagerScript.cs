@@ -1,21 +1,23 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using TMPro;
 
 public class SceneManagerScript : MonoBehaviour
 {
     [SerializeField] private GameObject objectForLeftShiftKey; 
     [SerializeField] private GameObject objectForRightShiftKey; 
     [SerializeField] private float holdDuration = 1f;
-    [SerializeField] private MenuController menuController; // Reference to MenuController
+    [SerializeField] private MenuController menuController; 
 
     private SpriteRenderer leftShiftSpriteRenderer;
     private SpriteRenderer rightShiftSpriteRenderer;
     private float holdTime = 0f;
 
+    private bool isSnareRollPlaying = false;
+    private bool isDrumFillPlaying = false;
+
     void Awake()
     {
-        Time.timeScale = 1f; // Ensure time scale is set to normal
+        Time.timeScale = 1f;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -34,28 +36,69 @@ public class SceneManagerScript : MonoBehaviour
         bool isLeftShiftHeld = Input.GetKey(KeyCode.LeftShift);
         bool isRightShiftHeld = Input.GetKey(KeyCode.RightShift);
 
-        // Only update shift key sprites if neither panel is visible
         if (!menuController.IsControlsPanelVisible && !menuController.IsQuitPanelVisible)
         {
-            // Update the SpriteRenderer for the left Shift key
             if (leftShiftSpriteRenderer != null)
                 leftShiftSpriteRenderer.enabled = isLeftShiftHeld;
 
-            // Update the SpriteRenderer for the right Shift key
             if (rightShiftSpriteRenderer != null)
                 rightShiftSpriteRenderer.enabled = isRightShiftHeld;
 
-            // Check if both keys are held for the scene loading condition
             if (isLeftShiftHeld && isRightShiftHeld)
             {
+                // Stop Snare_Roll if both keys are held
+                if (isSnareRollPlaying)
+                {
+                    AkSoundEngine.PostEvent("Stop_Snare_Roll", gameObject);
+                    isSnareRollPlaying = false;
+                }
+
+                // Play drum_fill if both keys are held
+                if (!isDrumFillPlaying)
+                {
+                    AkSoundEngine.PostEvent("drum_fill", gameObject);
+                    isDrumFillPlaying = true;
+                }
+
                 holdTime += Time.deltaTime;
                 if (holdTime >= holdDuration)
                 {
                     SceneManager.LoadScene("TestScene");
                 }
             }
+            else if (isLeftShiftHeld || isRightShiftHeld)
+            {
+                // Stop drum_fill if only one key is held
+                if (isDrumFillPlaying)
+                {
+                    AkSoundEngine.PostEvent("Stop_drum_fill", gameObject);
+                    isDrumFillPlaying = false;
+                }
+
+                // Play Snare_Roll if only one key is held
+                if (!isSnareRollPlaying)
+                {
+                    AkSoundEngine.PostEvent("Snare_Roll", gameObject);
+                    isSnareRollPlaying = true;
+                }
+
+                holdTime = 0f;
+            }
             else
             {
+                // Stop both sounds if no keys are held
+                if (isSnareRollPlaying)
+                {
+                    AkSoundEngine.PostEvent("Stop_Snare_Roll", gameObject);
+                    isSnareRollPlaying = false;
+                }
+                
+                if (isDrumFillPlaying)
+                {
+                    AkSoundEngine.PostEvent("Stop_drum_fill", gameObject);
+                    isDrumFillPlaying = false;
+                }
+
                 holdTime = 0f;
             }
         }

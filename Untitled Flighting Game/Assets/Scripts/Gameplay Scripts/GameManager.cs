@@ -166,6 +166,8 @@ public class GameManager : MonoBehaviour
         // Reset the flags for next round
         hasPlayer1LostAllLives = false;
         hasPlayer2LostAllLives = false;
+
+        AkSoundEngine.PostEvent("LostLife_Stinger", gameObject);
     }
 
     public void GoToMainMenu()
@@ -173,6 +175,8 @@ public class GameManager : MonoBehaviour
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        AkSoundEngine.PostEvent("ExitToMenu", gameObject);
         
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");

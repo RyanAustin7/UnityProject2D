@@ -19,21 +19,29 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button yesButton;         
     [SerializeField] private Button noButton;          
 
+    [Header("Settings Panel Settings")]
+    [SerializeField] private GameObject settingsPanel; // Reference to settings panel
+    [SerializeField] private Button settingsButton;     // Reference to settings button
+    [SerializeField] private Button settingsBackButton; // Reference to back button on settings panel
+
     [Header("Button Navigation Settings")]
     [SerializeField] private ButtonNavigation buttonNavigation; // Reference to the ButtonNavigation script
 
     public bool IsControlsPanelVisible { get; private set; } = false;
     public bool IsQuitPanelVisible { get; private set; } = false;
+    public bool IsSettingsPanelVisible { get; private set; } = false;
 
     private void Start()
     {
-        // Ensure the controls image is hidden at the start
+        // Ensure the panels are hidden at the start
         if (controlsImage != null)
             controlsImage.SetActive(false);
 
-        // Ensure the "Are you sure?" panel is hidden at the start
         if (areYouSurePanel != null)
             areYouSurePanel.SetActive(false);
+
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
 
         // Add listeners to the buttons
         if (controlsButton != null)
@@ -51,11 +59,17 @@ public class MenuController : MonoBehaviour
         if (noButton != null)
             noButton.onClick.AddListener(NoClicked);
 
+        if (settingsButton != null)
+            settingsButton.onClick.AddListener(ShowSettings);
+
+        if (settingsBackButton != null)
+            settingsBackButton.onClick.AddListener(HideSettings);
+
         // Set up ButtonNavigation
         if (buttonNavigation != null)
         {
             // Initially, only the main buttons are navigable
-            buttonNavigation.SetButtons(new List<Button> { controlsButton, quitButton });
+            buttonNavigation.SetButtons(new List<Button> { controlsButton, quitButton, settingsButton });
             buttonNavigation.SetSelectedButton(controlsButton); // Set the default selection
         }
     }
@@ -63,7 +77,7 @@ public class MenuController : MonoBehaviour
     private void Update()
     {
         // Only handle key inputs if neither panel is visible
-        if (!IsControlsPanelVisible && !IsQuitPanelVisible)
+        if (!IsControlsPanelVisible && !IsQuitPanelVisible && !IsSettingsPanelVisible)
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
@@ -101,7 +115,7 @@ public class MenuController : MonoBehaviour
         // Switch back to main buttons
         if (buttonNavigation != null)
         {
-            buttonNavigation.SetButtons(new List<Button> { controlsButton, quitButton });
+            buttonNavigation.SetButtons(new List<Button> { controlsButton, quitButton, settingsButton });
             buttonNavigation.SetSelectedButton(controlsButton); // Highlight controlsButton
         }
     }
@@ -129,8 +143,36 @@ public class MenuController : MonoBehaviour
         // Switch back to main buttons
         if (buttonNavigation != null)
         {
-            buttonNavigation.SetButtons(new List<Button> { controlsButton, quitButton });
+            buttonNavigation.SetButtons(new List<Button> { controlsButton, quitButton, settingsButton });
             buttonNavigation.SetSelectedButton(quitButton); // Highlight quitButton
+        }
+    }
+
+    private void ShowSettings()
+    {
+        if (settingsPanel != null)
+            settingsPanel.SetActive(true);
+        IsSettingsPanelVisible = true;
+
+        // Switch to settings panel buttons
+        if (buttonNavigation != null)
+        {
+            buttonNavigation.SetButtons(new List<Button> { settingsBackButton });
+            buttonNavigation.SetSelectedButton(settingsBackButton); // Highlight settingsBackButton
+        }
+    }
+
+    private void HideSettings()
+    {
+        if (settingsPanel != null)
+            settingsPanel.SetActive(false);
+        IsSettingsPanelVisible = false;
+
+        // Switch back to main buttons
+        if (buttonNavigation != null)
+        {
+            buttonNavigation.SetButtons(new List<Button> { controlsButton, quitButton, settingsButton });
+            buttonNavigation.SetSelectedButton(settingsButton); // Highlight settingsButton
         }
     }
 

@@ -33,22 +33,27 @@ public class PlayerLife : MonoBehaviour
             if (this == GameManager.Instance.playerLife1)
             {
                 AkSoundEngine.PostEvent("SetState_B", gameObject);
+                AkSoundEngine.PostEvent("LostLife_Stinger", gameObject);
             }
             // Wwise event: Player 2 loses a life
             else if (this == GameManager.Instance.playerLife2)
             {
                 AkSoundEngine.PostEvent("SetState_A", gameObject);
+                AkSoundEngine.PostEvent("LostLife_Stinger", gameObject);
             }
 
             // Check if both players have only 1 life left
             if (GameManager.Instance.playerLife1.lives == 1 && GameManager.Instance.playerLife2.lives == 1)
             {
                 AkSoundEngine.PostEvent("SetState_C", gameObject);
+                AkSoundEngine.PostEvent("LostLife_Stinger", gameObject);
             }
 
             if (lives <= 0)
             {
                 GameManager.Instance.EndGame();
+                AkSoundEngine.PostEvent("LostLife_Stinger", gameObject);
+                AkSoundEngine.PostEvent("Clapping", gameObject);
             }
         }
     }

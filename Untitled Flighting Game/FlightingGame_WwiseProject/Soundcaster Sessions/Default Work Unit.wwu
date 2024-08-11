@@ -14,12 +14,20 @@
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="drum_fill" ID="{6A882153-B67F-420A-92CB-D5045446F598}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="SetState_A" ID="{E98378F9-172D-4027-8FA1-70A86A389F4A}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
 							<Position X="1" Y="0"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="P2_Shoot" ID="{22803DCF-2E8C-41BC-89E7-8C58F6B8032C}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
 							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Snare_Roll" ID="{64277D12-D0B3-49D6-9833-208F20B4919B}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="1" Y="2"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="SetState_B" ID="{F666F395-0894-4C18-A9B8-6E153E1795B3}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
@@ -30,12 +38,24 @@
 							<Position X="2" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Stop_drum_fill" ID="{F15407E5-C3FB-42F5-BB76-48734FC010F5}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="SetState_C" ID="{476FC20E-7D3A-49E7-A8DE-86F187B89AA0}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
 							<Position X="3" Y="0"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Play_PowerupOver" ID="{645F0ABC-5B5D-4F0B-AB87-BE033F19950D}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
 							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Stop_Snare_Roll" ID="{AC08A457-76B1-46C3-BAA1-BB4E85AC6BD4}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="3" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="LostLife_Stinger" ID="{1BF3DA47-90E2-422D-BC8A-640E763F0A7A}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="4" Y="0"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Play_PowerupPickup" ID="{A328CB37-31DD-4480-8406-6DC4CCC35EA3}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
@@ -50,6 +70,10 @@
 						<RTPCValue>
 							<GameParameterRef Name="Size_Powerup" ID="{F462E9C6-C101-445D-B30B-7331DD181141}"/>
 							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="SFXVolume" ID="{E08DCC1B-8CE5-461A-B77C-6304C9177109}"/>
+							<Value>100</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="FireRate_Powerup" ID="{021A40D8-6760-497E-8E82-DD350137D09C}"/>
@@ -67,10 +91,69 @@
 							<GameParameterRef Name="Shooting_Sidechain" ID="{B9FAB1B1-513B-4BC0-B94C-9FBDA8AB1C22}"/>
 							<Value>-48</Value>
 						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MusicVolume" ID="{CBA33267-0D38-4CB0-BAA3-302995B616E3}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MasterVolume" ID="{9F152D25-4A55-4D5B-AA71-F81CF74B3EC8}"/>
+							<Value>100</Value>
+						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="State_A" ID="{26F5932B-691E-46E5-A0C7-D7E18BBC8DB5}"/>
 					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="New Soundcaster Test" ID="{9B9363E6-06DF-467D-8391-6C862E597F8C}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Clapping" ID="{B880A3FF-8B5C-4D76-BD34-765391C85C54}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_PowerupPickup" ID="{A328CB37-31DD-4480-8406-6DC4CCC35EA3}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="StartGame" ID="{76D216A6-0477-43A7-898E-D0000DF8615B}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="LostLife_Stinger" ID="{1BF3DA47-90E2-422D-BC8A-640E763F0A7A}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PlayDash" ID="{E1AB7897-EE54-4B19-9861-9598C8384F8A}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="P1_Shoot" ID="{B5189A3B-9388-4177-94E4-2BF48BF59A63}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SetState_A" ID="{E98378F9-172D-4027-8FA1-70A86A389F4A}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="P2_Shoot" ID="{22803DCF-2E8C-41BC-89E7-8C58F6B8032C}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SetState_B" ID="{F666F395-0894-4C18-A9B8-6E153E1795B3}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Play_PowerupOver" ID="{645F0ABC-5B5D-4F0B-AB87-BE033F19950D}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="4" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="SetState_C" ID="{476FC20E-7D3A-49E7-A8DE-86F187B89AA0}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="4" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 			</ChildrenList>

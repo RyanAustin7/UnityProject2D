@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems; // Ensure this line is present
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -18,15 +18,20 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private Button backButton;
     [SerializeField] private GameObject controlsPanel;
 
+    [Header("Settings Panel Settings")]
+    [SerializeField] private GameObject settingsPanel; // Reference to settings panel
+    [SerializeField] private Button settingsBackButton; // Reference to back button on settings panel
+
     [Header("Quit Game: Are You Sure?")]
     [SerializeField] private GameObject areYouSurePanel;
     [SerializeField] private Button yesButton;
     [SerializeField] private Button noButton;
 
     private bool controlsPanelActive = false;
+    private bool settingsPanelActive = false;
     private bool areYouSurePanelActive = false;
     private EventSystem eventSystem;
-    public static bool isGamePaused = false; // Changed to static
+    public static bool isGamePaused = false;
 
     private bool canActivateButton = true;
 
@@ -36,6 +41,7 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenuPanel.SetActive(false);
         controlsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         areYouSurePanel.SetActive(false);
 
         resumeButton.onClick.AddListener(ResumeGame);
@@ -43,6 +49,7 @@ public class PauseMenu : MonoBehaviour
         settingsButton.onClick.AddListener(OpenSettings);
         controlsButton.onClick.AddListener(OpenControls);
         backButton.onClick.AddListener(CloseControls);
+        settingsBackButton.onClick.AddListener(CloseSettings);
         yesButton.onClick.AddListener(QuitGame);
         noButton.onClick.AddListener(CloseAreYouSurePanel);
     }
@@ -67,6 +74,10 @@ public class PauseMenu : MonoBehaviour
             {
                 CloseControls();
             }
+            else if (settingsPanelActive)
+            {
+                CloseSettings();
+            }
             else if (areYouSurePanelActive)
             {
                 CloseAreYouSurePanel();
@@ -88,6 +99,7 @@ public class PauseMenu : MonoBehaviour
         isGamePaused = true;
         pauseMenuPanel.SetActive(true);
         controlsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         areYouSurePanel.SetActive(false);
         canActivateButton = true;
 
@@ -100,6 +112,7 @@ public class PauseMenu : MonoBehaviour
         isGamePaused = false;
         pauseMenuPanel.SetActive(false);
         controlsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         areYouSurePanel.SetActive(false);
         canActivateButton = true;
 
@@ -108,13 +121,39 @@ public class PauseMenu : MonoBehaviour
 
     private void OpenSettings()
     {
-        // Implement your settings menu logic here
+        settingsPanel.SetActive(true);
+        pauseMenuPanel.SetActive(false);
+        controlsPanel.SetActive(false);
+        areYouSurePanel.SetActive(false);
+        settingsPanelActive = true;
+        canActivateButton = true;
+
+        // Set up button navigation for settings panel if needed
+        if (eventSystem != null)
+        {
+            eventSystem.SetSelectedGameObject(settingsBackButton.gameObject);
+        }
+    }
+
+    private void CloseSettings()
+    {
+        settingsPanel.SetActive(false);
+        if (isGamePaused)
+        {
+            pauseMenuPanel.SetActive(true);
+        }
+        else if (controlsPanelActive)
+        {
+            controlsPanel.SetActive(true);
+        }
+        settingsPanelActive = false;
     }
 
     private void OpenAreYouSurePanel()
     {
         areYouSurePanel.SetActive(true);
         controlsPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         pauseMenuPanel.SetActive(false);
         areYouSurePanelActive = true;
         canActivateButton = true;
@@ -138,6 +177,7 @@ public class PauseMenu : MonoBehaviour
     {
         controlsPanel.SetActive(true);
         pauseMenuPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         areYouSurePanel.SetActive(false);
         controlsPanelActive = true;
         canActivateButton = true;
@@ -161,5 +201,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         ResumeGame();
         GameManager.Instance.GoToMainMenu();
+
+        AkSoundEngine.PostEvent("ExitToMenu", gameObject);
     }
 }

@@ -129,6 +129,100 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="LostLife_Stinger" ID="{1BF3DA47-90E2-422D-BC8A-640E763F0A7A}">
+							<ChildrenList>
+								<Action Name="" ID="{FEF5B0FE-7EB6-42ED-9579-32F4FA338B32}" ShortID="485006274">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Life taken" ID="{F57349D1-621A-4314-8120-88410C810107}" WorkUnitID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Clapping" ID="{B880A3FF-8B5C-4D76-BD34-765391C85C54}">
+							<ChildrenList>
+								<Action Name="" ID="{52FE4058-9CB2-43DA-9E31-8A9C7CF17906}" ShortID="720715662">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="CLAPPING" ID="{BD58C509-31C2-4B72-B230-573AD62CD40B}" WorkUnitID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Folder Name="Menu Events" ID="{4D3205DA-C230-45D9-9A92-12989C7F56FA}" ShortID="324129605">
+							<ChildrenList>
+								<Event Name="Snare_Roll" ID="{64277D12-D0B3-49D6-9833-208F20B4919B}">
+									<ChildrenList>
+										<Action Name="" ID="{3EBF8D47-39F9-4D39-B61C-A8AF7BF90031}" ShortID="1059472858">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Snare Rolls" ID="{35E4DC1E-7C9E-4937-9F43-768D26DD0573}" WorkUnitID="{4D1684BC-A918-4FBA-8AB6-35FEF6ABE207}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="drum_fill" ID="{6A882153-B67F-420A-92CB-D5045446F598}">
+									<ChildrenList>
+										<Action Name="" ID="{9CEFEF89-7A0D-4F15-ABD3-843560F217DD}" ShortID="219490452">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Drum Fill" ID="{C0A8482E-0C0B-4975-94DF-AD450D498727}" WorkUnitID="{4D1684BC-A918-4FBA-8AB6-35FEF6ABE207}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Stop_drum_fill" ID="{F15407E5-C3FB-42F5-BB76-48734FC010F5}">
+									<ChildrenList>
+										<Action Name="" ID="{1BA51C60-2E94-4430-A59C-2D6390832D06}" ShortID="532835947">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Drum Fill" ID="{C0A8482E-0C0B-4975-94DF-AD450D498727}" WorkUnitID="{4D1684BC-A918-4FBA-8AB6-35FEF6ABE207}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Stop_Snare_Roll" ID="{AC08A457-76B1-46C3-BAA1-BB4E85AC6BD4}">
+									<ChildrenList>
+										<Action Name="" ID="{F6B542B0-875C-476E-86B9-273DB877167A}" ShortID="854468348">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Snare Rolls" ID="{35E4DC1E-7C9E-4937-9F43-768D26DD0573}" WorkUnitID="{4D1684BC-A918-4FBA-8AB6-35FEF6ABE207}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Event Name="ExitToMenu" ID="{ECE36A51-C01E-4E09-B93B-50EC2E8CD0B8}">
+							<ChildrenList>
+								<Action Name="" ID="{1CEF2662-5DD7-49FC-8CB4-3AF517FB3B35}" ShortID="484497765">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Delay" Type="Real64" Value="0.1"/>
+										<Property Name="FadeOutCurve" Type="int16" Value="2"/>
+										<Property Name="FadeTime" Type="Real64" Value="1"/>
+										<Property Name="Scope" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Switch" ID="{052DBC16-346D-49E7-A57D-D6064DD08F71}" WorkUnitID="{4D1684BC-A918-4FBA-8AB6-35FEF6ABE207}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

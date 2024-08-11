@@ -13,6 +13,10 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID CLAPPING = 3510885559U;
+        static const AkUniqueID DRUM_FILL = 2131659319U;
+        static const AkUniqueID EXITTOMENU = 1379667087U;
+        static const AkUniqueID LOSTLIFE_STINGER = 12752846U;
         static const AkUniqueID P1_SHOOT = 1239999412U;
         static const AkUniqueID P2_SHOOT = 670171959U;
         static const AkUniqueID PLAY_POWERUPOVER = 497184544U;
@@ -21,7 +25,10 @@ namespace AK
         static const AkUniqueID SETSTATE_A = 2771630314U;
         static const AkUniqueID SETSTATE_B = 2771630313U;
         static const AkUniqueID SETSTATE_C = 2771630312U;
+        static const AkUniqueID SNARE_ROLL = 2586881738U;
         static const AkUniqueID STARTGAME = 1521187885U;
+        static const AkUniqueID STOP_DRUM_FILL = 3311637352U;
+        static const AkUniqueID STOP_SNARE_ROLL = 1787157163U;
     } // namespace EVENTS
 
     namespace STATES
@@ -45,7 +52,10 @@ namespace AK
     {
         static const AkUniqueID FIRERATE_POWERUP = 3005377306U;
         static const AkUniqueID GAME_PAUSED = 3367563548U;
+        static const AkUniqueID MASTERVOLUME = 2918011349U;
+        static const AkUniqueID MUSICVOLUME = 2346531308U;
         static const AkUniqueID POWERUP_SIDECHAIN = 3230143762U;
+        static const AkUniqueID SFXVOLUME = 988953028U;
         static const AkUniqueID SHOOTING_SIDECHAIN = 1519662915U;
         static const AkUniqueID SIZE_POWERUP = 1931254523U;
         static const AkUniqueID SPEED_POWERUP = 2668473039U;
