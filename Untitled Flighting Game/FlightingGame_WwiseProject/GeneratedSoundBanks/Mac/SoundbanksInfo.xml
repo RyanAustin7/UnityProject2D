@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5EA5D1FA-CA1E-2277-B181-A2104EA75AF7}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{9F0B8CDE-5C01-CFFF-7706-6F9FF16A5A54}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -58,6 +58,7 @@
 				<GameParameter Id="822163944" Name="SS_Air_RPM"/>
 				<GameParameter Id="988953028" Name="SFXVolume"/>
 				<GameParameter Id="1029930033" Name="SS_Air_Fury"/>
+				<GameParameter Id="1268791180" Name="DrumRoll"/>
 				<GameParameter Id="1351367891" Name="SS_Air_Fear"/>
 				<GameParameter Id="1519662915" Name="Shooting_Sidechain"/>
 				<GameParameter Id="1931254523" Name="Size_Powerup"/>
@@ -200,7 +201,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="4264839874" Type="User" Language="SFX" Hash="{B7A647B6-B23A-D65E-D235-8880A3587A51}">
+		<SoundBank Id="4264839874" Type="User" Language="SFX" Hash="{B4747527-B55B-E801-78FF-F43D80248596}">
 			<ShortName>GamePlaySB</ShortName>
 			<Path>GamePlaySB.bnk</Path>
 			<Media>
@@ -264,6 +265,10 @@
 					<ShortName>C_Piano_SOLO.wav</ShortName>
 					<CachePath>SFX/C_Piano_SOLO_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="433869667" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>C_Marimba_SOLO.wav</ShortName>
+					<CachePath>SFX/C_Marimba_SOLO_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="442535613" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>B_Piano_1.wav</ShortName>
 					<CachePath>SFX/B_Piano_1_D79FB2B7.wem</CachePath>
@@ -271,6 +276,10 @@
 				<File Id="466256649" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>B_Piano_SOLO.wav</ShortName>
 					<CachePath>SFX/B_Piano_SOLO_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="471732607" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Snap.wav</ShortName>
+					<CachePath>SFX/Snap_F25E0A8E.wem</CachePath>
 				</File>
 				<File Id="496854891" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>A_Gtr.wav</ShortName>
@@ -320,9 +329,17 @@
 					<ShortName>C_Marimba.wav</ShortName>
 					<CachePath>SFX/C_Marimba_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="758806061" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Bass_SOLO.wav</ShortName>
+					<CachePath>SFX/A_Bass_SOLO_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="764742269" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Transition_Drum_2.wav</ShortName>
 					<CachePath>SFX/Transition_Drum_2_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="767838659" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Menu Theme.wav</ShortName>
+					<CachePath>SFX/Menu Theme_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="806380007" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>A_Piano_SOLO_1.wav</ShortName>
@@ -332,6 +349,10 @@
 					<ShortName>Better_Drum_Fill_2.wav</ShortName>
 					<CachePath>SFX/Better_Drum_Fill_2_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="836717268" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>A_Marimba_SOLO.wav</ShortName>
+					<CachePath>SFX/A_Marimba_SOLO_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="881175217" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>C_Drum.wav</ShortName>
 					<CachePath>SFX/C_Drum_D79FB2B7.wem</CachePath>
@@ -340,9 +361,17 @@
 					<ShortName>A_Piano_SOLO_2.wav</ShortName>
 					<CachePath>SFX/A_Piano_SOLO_2_D79FB2B7.wem</CachePath>
 				</File>
+				<File Id="914267028" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Bass_SOLO.wav</ShortName>
+					<CachePath>SFX/B_Bass_SOLO_D79FB2B7.wem</CachePath>
+				</File>
 				<File Id="942387744" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>A_Bass.wav</ShortName>
 					<CachePath>SFX/A_Bass_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="988302579" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>B_Marimba_SOLO.wav</ShortName>
+					<CachePath>SFX/B_Marimba_SOLO_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="1003440553" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>CLAPPING.wav</ShortName>
@@ -360,8 +389,17 @@
 					<ShortName>Life taken\Life Taken 4.wav</ShortName>
 					<CachePath>SFX/Life taken/Life Taken 4_5791970C.wem</CachePath>
 				</File>
+				<File Id="1058038160" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>C_Bass_SOLO.wav</ShortName>
+					<CachePath>SFX/C_Bass_SOLO_D79FB2B7.wem</CachePath>
+				</File>
 			</Media>
 			<Events>
+				<Event Id="4051332235" Name="ButtonClick" DurationType="OneShot" DurationMin="0.6447246" DurationMax="0.8336932">
+					<MediaRefs>
+						<MediaRef Id="471732607"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3510885559" Name="Clapping" DurationType="OneShot" DurationMin="2.927914" DurationMax="2.927914">
 					<MediaRefs>
 						<MediaRef Id="1003440553"/>
@@ -389,6 +427,11 @@
 				<Event Id="670171959" Name="P2_Shoot" DurationType="OneShot" DurationMin="0.32926893" DurationMax="0.34884825">
 					<MediaRefs>
 						<MediaRef Id="726677227"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1278378707" Name="Play_Menu" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="767838659"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="497184544" Name="Play_PowerupOver" DurationType="OneShot" DurationMin="2.1249886" DurationMax="2.1249886">
@@ -443,7 +486,9 @@
 								<MediaRef Id="496854891"/>
 								<MediaRef Id="501455307"/>
 								<MediaRef Id="607727682"/>
+								<MediaRef Id="758806061"/>
 								<MediaRef Id="806380007"/>
+								<MediaRef Id="836717268"/>
 								<MediaRef Id="908569832"/>
 								<MediaRef Id="942387744"/>
 							</MediaRefs>
@@ -458,6 +503,8 @@
 								<MediaRef Id="466256649"/>
 								<MediaRef Id="685654288"/>
 								<MediaRef Id="748058292"/>
+								<MediaRef Id="914267028"/>
+								<MediaRef Id="988302579"/>
 								<MediaRef Id="1004240270"/>
 							</MediaRefs>
 						</SwitchContainer>
@@ -466,11 +513,13 @@
 							<MediaRefs>
 								<MediaRef Id="66085231"/>
 								<MediaRef Id="425432998"/>
+								<MediaRef Id="433869667"/>
 								<MediaRef Id="498286219"/>
 								<MediaRef Id="687839427"/>
 								<MediaRef Id="721664613"/>
 								<MediaRef Id="755367939"/>
 								<MediaRef Id="881175217"/>
+								<MediaRef Id="1058038160"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -479,9 +528,11 @@
 					</ActionSetState>
 				</Event>
 				<Event Id="3311637352" Name="Stop_drum_fill" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="3945748993" Name="Stop_Menu_Music" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1787157163" Name="Stop_Snare_Roll" MaxAttenuation="0" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 			<GameParameters>
+				<GameParameter Id="1268791180" Name="DrumRoll"/>
 				<GameParameter Id="1931254523" Name="Size_Powerup"/>
 				<GameParameter Id="2668473039" Name="Speed_Powerup"/>
 				<GameParameter Id="3005377306" Name="FireRate_Powerup"/>
@@ -499,5 +550,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{5C807C9D-9869-FB01-455F-2EB0C7FE67D3}</FileHash>
+	<FileHash>{3C1A7673-7C5E-E172-6F58-62FA1BF01C04}</FileHash>
 </SoundBanksInfo>

@@ -72,6 +72,18 @@
 						</GameParameter>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="MenuRTPC" ID="{359ECCB3-5D9C-4703-BF03-1A8ADB7E7DB7}" ShortID="423708896">
+					<ChildrenList>
+						<GameParameter Name="DrumRoll" ID="{DD94BBA2-3BFA-4B0F-856A-918C3D3B6C3A}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="RTPCRamping" Type="int16" Value="1"/>
+								<Property Name="SlewRateDown" Type="Real64" Value="70"/>
+								<Property Name="SlewRateUp" Type="Real64" Value="200"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

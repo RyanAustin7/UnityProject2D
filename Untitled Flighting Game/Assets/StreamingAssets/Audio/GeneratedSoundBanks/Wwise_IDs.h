@@ -13,12 +13,14 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID BUTTONCLICK = 4051332235U;
         static const AkUniqueID CLAPPING = 3510885559U;
         static const AkUniqueID DRUM_FILL = 2131659319U;
         static const AkUniqueID EXITTOMENU = 1379667087U;
         static const AkUniqueID LOSTLIFE_STINGER = 12752846U;
         static const AkUniqueID P1_SHOOT = 1239999412U;
         static const AkUniqueID P2_SHOOT = 670171959U;
+        static const AkUniqueID PLAY_MENU = 1278378707U;
         static const AkUniqueID PLAY_POWERUPOVER = 497184544U;
         static const AkUniqueID PLAY_POWERUPPICKUP = 3920027666U;
         static const AkUniqueID PLAYDASH = 1030691167U;
@@ -28,6 +30,7 @@ namespace AK
         static const AkUniqueID SNARE_ROLL = 2586881738U;
         static const AkUniqueID STARTGAME = 1521187885U;
         static const AkUniqueID STOP_DRUM_FILL = 3311637352U;
+        static const AkUniqueID STOP_MENU_MUSIC = 3945748993U;
         static const AkUniqueID STOP_SNARE_ROLL = 1787157163U;
     } // namespace EVENTS
 
@@ -50,6 +53,7 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID DRUMROLL = 1268791180U;
         static const AkUniqueID FIRERATE_POWERUP = 3005377306U;
         static const AkUniqueID GAME_PAUSED = 3367563548U;
         static const AkUniqueID MASTERVOLUME = 2918011349U;

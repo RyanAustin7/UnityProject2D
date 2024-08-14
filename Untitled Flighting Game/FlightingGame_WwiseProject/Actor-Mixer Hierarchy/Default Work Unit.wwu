@@ -433,6 +433,53 @@
 							</ActiveSourceList>
 						</Sound>
 						<Folder Name="MENU_STUFF" ID="{5FCC8896-F8DE-4BC2-8085-0B21B9BFC464}" ShortID="292306710"/>
+						<Sound Name="Snap" ID="{084A0D7B-CBA5-4215-854C-5B9C2C386FEF}" ShortID="182746711">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{27E6E7CA-3F8E-437C-BFEA-CF249BBDE676}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="235"/>
+													<Property Name="Min" Type="Real64" Value="-210"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{CF341D2F-45C8-4170-827C-04E6C6AF340C}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Snap" ID="{2BE046A9-BDE4-4ABA-A214-47CF6FF5710E}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.00417208097928437"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0417208097928436"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Snap.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="471732607"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Snap" ID="{2BE046A9-BDE4-4ABA-A214-47CF6FF5710E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>

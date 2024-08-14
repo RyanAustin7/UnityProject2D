@@ -203,6 +203,38 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Play_Menu" ID="{4B89AB85-17E6-492E-A76B-487615A46A36}">
+									<ChildrenList>
+										<Action Name="" ID="{7E397881-A7AC-412A-8B18-4F029D7D0BA2}" ShortID="365572738">
+											<PropertyList>
+												<Property Name="Delay" Type="Real64" Value="0.2"/>
+												<Property Name="FadeInCurve" Type="int16" Value="2"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.3"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Menu Theme" ID="{881BE4E7-CF43-4C97-A9EA-44AAACA5C4C4}" WorkUnitID="{4D1684BC-A918-4FBA-8AB6-35FEF6ABE207}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Stop_Menu_Music" ID="{DDFB8F1C-3509-4AA2-B2A6-7AEB1607EC44}">
+									<ChildrenList>
+										<Action Name="" ID="{4915A3B5-F38C-4397-8928-96426259C982}" ShortID="784285659">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="FadeOutCurve" Type="int16" Value="2"/>
+												<Property Name="FadeTime" Type="Real64" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Menu Theme" ID="{881BE4E7-CF43-4C97-A9EA-44AAACA5C4C4}" WorkUnitID="{4D1684BC-A918-4FBA-8AB6-35FEF6ABE207}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Event Name="ExitToMenu" ID="{ECE36A51-C01E-4E09-B93B-50EC2E8CD0B8}">
@@ -218,6 +250,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Switch" ID="{052DBC16-346D-49E7-A57D-D6064DD08F71}" WorkUnitID="{4D1684BC-A918-4FBA-8AB6-35FEF6ABE207}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="ButtonClick" ID="{70A32D3E-1839-4E91-A0A1-B363FB45261B}">
+							<ChildrenList>
+								<Action Name="" ID="{22AB9FB9-2F6A-4E4F-B989-B3DC48228D5A}" ShortID="183578083">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Snap" ID="{084A0D7B-CBA5-4215-854C-5B9C2C386FEF}" WorkUnitID="{01FC3555-0EA4-44E6-B7B8-0C8172A2536A}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

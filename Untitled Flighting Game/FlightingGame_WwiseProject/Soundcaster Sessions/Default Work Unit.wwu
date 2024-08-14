@@ -18,6 +18,10 @@
 							<Position X="0" Y="2"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Play_Menu" ID="{4B89AB85-17E6-492E-A76B-487615A46A36}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="SetState_A" ID="{E98378F9-172D-4027-8FA1-70A86A389F4A}" WorkUnitID="{8F12BAF2-09EC-4F09-A192-AE1BF3500CF5}"/>
 							<Position X="1" Y="0"/>
 						</Module>
@@ -84,6 +88,10 @@
 							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="DrumRoll" ID="{DD94BBA2-3BFA-4B0F-856A-918C3D3B6C3A}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="Powerup_Sidechain" ID="{58A068E7-FDE3-4B72-8FE4-C60B3AA9EAC7}"/>
 							<Value>-48</Value>
 						</RTPCValue>
@@ -101,7 +109,7 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="State_A" ID="{26F5932B-691E-46E5-A0C7-D7E18BBC8DB5}"/>
+						<CurrentStateRef Name="State_B" ID="{FC162EA7-8722-48EC-BF6E-350150CEC61F}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>

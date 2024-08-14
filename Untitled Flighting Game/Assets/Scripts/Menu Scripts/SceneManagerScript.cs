@@ -24,6 +24,8 @@ public class SceneManagerScript : MonoBehaviour
 
     void Start()
     {
+        AkSoundEngine.PostEvent("Play_Menu", gameObject);
+
         if (objectForLeftShiftKey != null)
             leftShiftSpriteRenderer = objectForLeftShiftKey.GetComponent<SpriteRenderer>();
 
@@ -50,6 +52,7 @@ public class SceneManagerScript : MonoBehaviour
                 if (isSnareRollPlaying)
                 {
                     AkSoundEngine.PostEvent("Stop_Snare_Roll", gameObject);
+                    AkSoundEngine.SetRTPCValue("DrumRoll", 0, gameObject); // Set DrumRoll to 0
                     isSnareRollPlaying = false;
                 }
 
@@ -57,12 +60,14 @@ public class SceneManagerScript : MonoBehaviour
                 if (!isDrumFillPlaying)
                 {
                     AkSoundEngine.PostEvent("drum_fill", gameObject);
+                    AkSoundEngine.SetRTPCValue("DrumRoll", 100, gameObject); // Set DrumRoll to 100
                     isDrumFillPlaying = true;
                 }
 
                 holdTime += Time.deltaTime;
                 if (holdTime >= holdDuration)
                 {
+                    AkSoundEngine.PostEvent("Stop_Menu_Music", gameObject);
                     SceneManager.LoadScene("TestScene");
                 }
             }
@@ -72,6 +77,7 @@ public class SceneManagerScript : MonoBehaviour
                 if (isDrumFillPlaying)
                 {
                     AkSoundEngine.PostEvent("Stop_drum_fill", gameObject);
+                    AkSoundEngine.SetRTPCValue("DrumRoll", 0, gameObject); // Set DrumRoll to 0
                     isDrumFillPlaying = false;
                 }
 
@@ -79,6 +85,7 @@ public class SceneManagerScript : MonoBehaviour
                 if (!isSnareRollPlaying)
                 {
                     AkSoundEngine.PostEvent("Snare_Roll", gameObject);
+                    AkSoundEngine.SetRTPCValue("DrumRoll", 50, gameObject); // Set DrumRoll to 50
                     isSnareRollPlaying = true;
                 }
 
@@ -99,6 +106,8 @@ public class SceneManagerScript : MonoBehaviour
                     isDrumFillPlaying = false;
                 }
 
+                // Set DrumRoll to 0 if neither sound is playing
+                AkSoundEngine.SetRTPCValue("DrumRoll", 0, gameObject);
                 holdTime = 0f;
             }
         }
