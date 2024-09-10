@@ -201,7 +201,7 @@
 				</AcousticTexture>
 			</AcousticTextures>
 		</SoundBank>
-		<SoundBank Id="4264839874" Type="User" Language="SFX" Hash="{B4747527-B55B-E801-78FF-F43D80248596}">
+		<SoundBank Id="4264839874" Type="User" Language="SFX" Hash="{A1C7454D-8B68-DCD2-CED7-48751D9EABD2}">
 			<ShortName>GamePlaySB</ShortName>
 			<Path>GamePlaySB.bnk</Path>
 			<Media>
@@ -279,7 +279,7 @@
 				</File>
 				<File Id="471732607" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>Snap.wav</ShortName>
-					<CachePath>SFX/Snap_F25E0A8E.wem</CachePath>
+					<CachePath>SFX/Snap_B595A734.wem</CachePath>
 				</File>
 				<File Id="496854891" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>A_Gtr.wav</ShortName>
@@ -550,5 +550,5 @@
 			</StateGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{17EC3D1D-95ED-B48F-4774-E06AC5E3A609}</FileHash>
+	<FileHash>{193ABC05-3B82-69FE-B352-AC01F5699959}</FileHash>
 </SoundBanksInfo>

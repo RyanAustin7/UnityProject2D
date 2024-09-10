@@ -432,7 +432,7 @@
 																				<PointList>
 																					<Point>
 																						<XPos>0</XPos>
-																						<YPos>-0</YPos>
+																						<YPos>0</YPos>
 																						<Flags>5</Flags>
 																					</Point>
 																					<Point>
@@ -616,7 +616,7 @@
 																				<PointList>
 																					<Point>
 																						<XPos>0</XPos>
-																						<YPos>-0</YPos>
+																						<YPos>0</YPos>
 																						<Flags>5</Flags>
 																					</Point>
 																					<Point>
@@ -1900,7 +1900,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>2</Value>
+														<Value>4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1993,6 +1993,13 @@
 											</ObjectLists>
 										</MusicTrack>
 										<MusicTrack Name="A_Marimba_SOLO" ID="{C55348E5-3E69-402D-96E7-13010DB40F01}" ShortID="299263418">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
@@ -3153,7 +3160,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>3</Value>
+														<Value>4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -3246,13 +3253,6 @@
 											</ObjectLists>
 										</MusicTrack>
 										<MusicTrack Name="B_Marimba_SOLO" ID="{D3C595F0-BF3D-4781-9BAC-76B928839CDC}" ShortID="366295161">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-1</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
@@ -4770,7 +4770,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>3</Value>
+														<Value>4</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -4823,7 +4823,7 @@
 																					</Point>
 																					<Point>
 																						<XPos>1</XPos>
-																						<YPos>-0</YPos>
+																						<YPos>0</YPos>
 																						<Flags>37</Flags>
 																					</Point>
 																				</PointList>
@@ -4863,6 +4863,13 @@
 											</ObjectLists>
 										</MusicTrack>
 										<MusicTrack Name="C_Marimba_SOLO" ID="{68B2CD9A-AE6D-44CD-B046-F97E55CF6617}" ShortID="82967197">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="OutputBus">
 													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{96E33C10-D413-4B6A-9BB3-933739635B7D}"/>
